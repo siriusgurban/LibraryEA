@@ -21,7 +21,7 @@
             <div class="bg-danger" style="width:25%; position: fixed; height: 100%; overflow: auto;">
                 <h1 class="fs-1">Admin Panel</h1>
                 <h2 class="fs-2">Home</h2>
-                <h2 class="fs-2">Books</h2>
+                <h2 class="fs-2"><a href="#books">Books</a></h2>
                 <h2 class="fs-2">About</h2>
                 <h2 class="fs-2">Join Us</h2>
                 <h2 class="fs-2">Contact</h2>
@@ -64,7 +64,7 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Id</label>
-                        <input id="inp4" type="text" class="form-control" id="exampleInputEmail1"
+                        <input id="inp4" data-img type="text" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" value>
                     </div>
 
@@ -76,20 +76,47 @@
 
 
                     <select id="dropInpMenu" disabled="true" class="form-select" aria-label="Default select example">
-                        <!-- <option id="categoryInpSelected" selected></option> -->
                     </select>
 
+                    <h1 id="books" class="my-5 fs-1">BOOKS</h1>
 
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio1">Avto Add</label>
+                    <div class="d-flex justify-content-around mt-5">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-primary" for="btnradio1">Avto Add</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Manual Add</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio2">Manual Add</label>
+                        </div>
+
+                        <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
                     </div>
-
-                    <button id="submitBtn" type="submit" class="btn btn-primary mt-3">Submit</button>
                 </form>
+                <br>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td><button class="btn btn-danger">Del</button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
             </div>
 
         </section>

@@ -53,7 +53,7 @@ btnClear.addEventListener("click", (e) => {
                                 <h4 class="card-title fw-3">${el.volumeInfo.authors}</h4>
                                 <h5 class="card-title">${el.volumeInfo.title}</h5>
                                 <h5 class="card-title">${el.volumeInfo.categories}</h5>
-                                <button class="btn btn-primary addBtn" data-id="${el.id}" data-image=${el.volumeInfo.imageLinks.thumbnail} data-title="${el.volumeInfo.title}" data-authors="${el.volumeInfo.authors}" data-categories="${el.volumeInfo.categories}">Add</button>
+                                <button class="btn btn-primary addBtn" data-id="${el.id}" data-year="${el.volumeInfo?.publishedDate}" data-desc="${el.volumeInfo.description}" data-image="${el.volumeInfo.imageLinks?.thumbnail}" data-title="${el.volumeInfo.title}" data-authors="${el.volumeInfo.authors}" data-categories="${el.volumeInfo.categories}">Add</button>
                             </div>
 
                         </div>`
@@ -62,32 +62,32 @@ btnClear.addEventListener("click", (e) => {
             let addBtn = document.querySelectorAll(".addBtn");
             addBtn.forEach(btn => {
                 btn.addEventListener("click", () => {       //add to form function
-                    addToForm(btn.dataset.id, btn.dataset.authors, btn.dataset.title, btn.dataset.categories, btn.dataset.image);
+                    addToForm(btn.dataset.id, btn.dataset.authors, btn.dataset.title, btn.dataset.categories, btn.dataset.image, btn.dataset.desc, btn.dataset.year);
                     renderBooksCategories();
                 })
             })
 
-            function addToForm(id = Date.now(), authors, title, categories, image, desc) {       //add to form function called
+            function addToForm(id , authors, title, categories, image, desc, year) {       //add to form function called
                 inp1.value = authors;
                 inp2.value = title;
                 inp3.value = categories;
                 inp4.value = id;
-
+                inp4.dataset.img = image;
+                inp4.dataset.desc = desc;
+                inp4.dataset.year = year;
             }
-
-            
-
         })
 })
 
 submitBtn.addEventListener("click", (e) => {//add function called
     e.preventDefault();
+
     let bookObj;
     let date = Date.now();
     if (dropInpMenu.hasAttribute("disabled")) {
-        bookObj = { authors: inp1.value, title: inp2.value, categories: inp3.value, date: date }  //writing book with datas to firebase as Object
+        bookObj = { authors: inp1.value, title: inp2.value, categories: inp3.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year }  //writing book with datas to firebase as Object
     } else {
-        bookObj = { authors: inp1.value, title: inp2.value, categories: dropInpMenu.value, date: date }
+        bookObj = { authors: inp1.value, title: inp2.value, categories: dropInpMenu.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year }
     }
 
     console.log(bookObj, "bookObj");
@@ -100,7 +100,7 @@ submitBtn.addEventListener("click", (e) => {//add function called
 
 
 function writeUserData(bookId, book) {
-    const reference = ref(db, 'List/' + "books/" + bookId);//add function
+    const reference = ref(db, "books/" + bookId);//add function
     set(reference, {
         book: book,
     })
@@ -108,7 +108,7 @@ function writeUserData(bookId, book) {
 
 
 function renderBooksCategories() {
-    const books = ref(db, 'List/' + "books/");
+    const books = ref(db, "books/");
 
     onValue(books, (snapshot) => {
         const data = snapshot.val();
@@ -152,3 +152,64 @@ function checkForDuplicates(arr) {    //function checks For Duplicates in catego
 }
 
 renderBooksCategories()
+
+
+//? Show books as table on AdminPanel where you can delete books
+
+let tbody = document.querySelector("tbody");
+
+function renderBooksonTable() {
+    const books = ref(db, "books/");
+
+    onValue(books, (snapshot) => {
+        const data = snapshot.val();
+        let arr = Object?.entries(data);
+        console.log(arr.map(el => el[1]), "Table");      // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
+                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+        tbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+            return `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${el.book?.title}</td>
+            <td>${el.book?.authors}</td>
+            <td><div class="descHover" style="overflow:hidden; width: 300px; height:50px;">${el.book?.desc}</div></td>
+            <td>${el.book?.categories}</td>
+            <td><button class="btn btn-danger delBtn" data-id="${el.book?.id}">Del</button></td>
+            </tr>`
+        }).join("");
+
+        let descHover = document.querySelectorAll(".descHover");
+
+        descHover.forEach((btn) => {                      //shows function that shows full description and then hide description
+            btn.addEventListener("mouseover", (e) => {
+                btn.style.overflow = "visible";
+                btn.style.height = "auto";
+            })
+            btn.addEventListener("mouseleave", () => {
+                btn.style.overflow = "hidden";
+                btn.style.height = "50px";
+            })
+        })
+
+
+        let delBtn = document.querySelectorAll(".delBtn");
+        console.log(delBtn, "delBtn");
+
+        delBtn.forEach(btn => {
+            btn.addEventListener("click", () => { 
+                console.log(btn.dataset.id, "btn.dataset.id");          //delete function called
+                deleteBook(btn.dataset.id);
+            })
+        })
+
+        function deleteBook(bookId) {                                   //delete function
+            let rmv = ref(db, "books/" + bookId);
+
+            remove(rmv).then(() => console.log("Successfully deleted"));
+        }
+
+    })
+}
+
+renderBooksonTable();
+
+
