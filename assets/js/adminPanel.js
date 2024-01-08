@@ -85,9 +85,9 @@ submitBtn.addEventListener("click", (e) => {//add function called
     let bookObj;
     let date = Date.now();
     if (dropInpMenu.hasAttribute("disabled")) {
-        bookObj = { authors: inp1.value, title: inp2.value, categories: inp3.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year }  //writing book with datas to firebase as Object
+        bookObj = { authors: inp1.value, title: inp2.value, categories: inp3.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year, comments: null }  //writing book with datas to firebase as Object
     } else {
-        bookObj = { authors: inp1.value, title: inp2.value, categories: dropInpMenu.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year }
+        bookObj = { authors: inp1.value, title: inp2.value, categories: dropInpMenu.value, date: date, image: inp4.dataset.img, desc: inp4.dataset.desc, id: inp4.value, year: inp4.dataset.year, comments: null }
     }
 
     console.log(bookObj, "bookObj");

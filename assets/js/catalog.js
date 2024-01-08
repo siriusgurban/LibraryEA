@@ -34,7 +34,7 @@ function renderCatalog() {
         let arr = Object.entries(data);
         console.log(arr);
 
-    
+
 
         let arrForCheking = arr.map((el) => {       //filtered and uniqued 1
             return el[1].book?.categories;
@@ -62,7 +62,7 @@ function renderCatalog() {
         categoriesClass.forEach(btn => {
             btn.addEventListener("click", () => {
 
-                let arrForFilterCategories = arr.map(el => el[1]).filter(el => {
+                let arrForFilterCategories = arr.map(el => el[1]).filter(el => {        //on click category that mapping that types of books
                     if (el.book.categories == btn.textContent) {
                         return el;
                     }
@@ -92,8 +92,8 @@ function renderCatalog() {
 
                 let readMoreBtn = document.querySelectorAll(".readMoreBtn");
 
-                readMoreBtn.forEach(btn=>{
-                    btn.addEventListener("click", ()=>{renderDetailPage(btn.dataset.id)})
+                readMoreBtn.forEach(btn => {
+                    btn.addEventListener("click", () => { renderDetailPage(btn.dataset.id) })
                 })
             })
         })
@@ -109,4 +109,53 @@ function checkForDuplicates(arr) {    //function checks For Duplicates in catego
 function renderDetailPage(id) {
     console.log("cliked");
     window.location.href = `../pages/readMoreBook.html#id=${id}`;
-  }
+}
+
+//--------------------------------------------All Books-Mapping---------------------------------------------------------------------------
+
+function renderAllBooks() {
+    const books = ref(db, "books/");
+
+    onValue(books, (snapshot) => {
+        const data = snapshot.val();
+
+        let arr = Object.entries(data);
+        console.log(arr);
+
+        swiperWrapper.innerHTML = 
+        arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
+            console.log(el);
+            return `<div class="swiper-slide">
+                    <div class="card " style="width: 18rem; cursor: pointer">
+                    <img src="${el.book.image}" class="card-img-top" alt="...">
+    
+                            <div class="card-body">
+    
+                                <h4 class="card-title fw-3">${el.book.authors}</h4>
+                                <h5 class="card-title">${el.book.title}</h5>
+                                <h5 class="card-title">${el.book.categories}</h5>
+                                <button class="btn btn-primary readMoreBtn" data-id="${el.book.id}">Read More</button>
+                            </div>
+    
+                        </div>
+                    </div>`;
+        }).join("");;
+
+        let readMoreBtn = document.querySelectorAll(".readMoreBtn");
+
+        readMoreBtn.forEach(btn => {
+            btn.addEventListener("click", () => { renderDetailPage(btn.dataset.id) })
+        })
+    })
+}
+
+
+renderAllBooks();
+
+//--------------------------------------------All Books-Mapping---------------------------------------------------------------------------
+
+
+function mappedBooks(arr){
+
+
+}
