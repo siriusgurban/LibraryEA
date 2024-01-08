@@ -20,34 +20,22 @@
         <section class="">
             <div class="bg-danger" style="width:25%; position: fixed; height: 100%; overflow: auto;">
                 <h1 class="fs-1">Admin Panel</h1>
-                <h2 class="fs-2">Home</h2>
+                <h2 class="fs-2"><a href="#home">Home</a></h2>
                 <h2 class="fs-2"><a href="#books">Books</a></h2>
                 <h2 class="fs-2">About</h2>
                 <h2 class="fs-2">Join Us</h2>
-                <h2 class="fs-2">Contact</h2>
+                <h2 class="fs-2"><a href="#contactUs">Contact</a></h2>
                 <h2 class="fs-2">Log Out</h2>
             </div>
             <div class="" style="margin-left: 30%;">
-                <div>Add book</div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-warning" type="button">Search</button>
-                    </div>
-                </div>
+                
 
-                <form class="form-inline mb-4 d-flex justify-content-center gap-3 ">
+                <form id="home" class="form-inline mb-4 d-flex justify-content-center gap-3 ">
+                    <div class="fs-3 ">Add book</div>
                     <input id="input1" class="form-control mr-sm-2 w-50" type="search" placeholder="Search"
                         aria-label="Search">
-                    <button id="btnClear" class="btn btn-outline-danger my-2 my-sm-0 w-25" type="submit">Clear</button>
+                    <button id="btnClear" class="btn btn-outline-danger my-2 my-sm-0 w-25" type="submit">Search</button>
                 </form>
-
-                <div id="main-card" class="d-flex flex-wrap justify-content-between m-3">
-                    <div class="card my-4 " style="width: 18rem; cursor: pointer">
-
-                    </div>
-                </div>
 
                 <form>
                     <div class="mb-3">
@@ -78,7 +66,7 @@
                     <select id="dropInpMenu" disabled="true" class="form-select" aria-label="Default select example">
                     </select>
 
-                    <h1 id="books" class="my-5 fs-1">BOOKS</h1>
+
 
                     <div class="d-flex justify-content-around mt-5">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -93,10 +81,11 @@
                         <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-                <br>
 
-                <table class="table">
-                    <thead>
+                <!-------------------------------------------- Books list Start------------------------------------->
+                <h1 id="books" class="my-5 fs-1">BOOKS</h1>
+                <table class="table mt-5">
+                    <thead class="table-danger">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
@@ -106,17 +95,34 @@
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td><button class="btn btn-danger">Del</button></td>
-                        </tr> -->
+                    <tbody id="booktbody">
+
                     </tbody>
                 </table>
+
+                <!-------------------------------------------- Books list End------------------------------------->
+
+                <!-------------------------------------------- Contact Us Start------------------------------------->
+
+                <h1 id="contactUs" class="my-5 fs-1">Contact Us</h1>
+                <table class="table mt-5">
+                    <thead class="table-danger">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fullname</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactUstbody">
+
+                    </tbody>
+                </table>
+
+                <!-------------------------------------------- Contact Us End------------------------------------->
+
+
             </div>
 
         </section>

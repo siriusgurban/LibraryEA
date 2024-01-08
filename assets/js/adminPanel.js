@@ -154,9 +154,12 @@ function checkForDuplicates(arr) {    //function checks For Duplicates in catego
 renderBooksCategories()
 
 
+
+//? -------------------------------------------- Books list Start-------------------------------------
+
 //? Show books as table on AdminPanel where you can delete books
 
-let tbody = document.querySelector("tbody");
+let booktbody = document.querySelector("#booktbody");
 
 function renderBooksonTable() {
     const books = ref(db, "books/");
@@ -166,7 +169,7 @@ function renderBooksonTable() {
         let arr = Object?.entries(data);
         console.log(arr.map(el => el[1]), "Table");      // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
                                                         // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
-        tbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+                                                        booktbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
             <th scope="row">${index + 1}</th>
             <td>${el.book?.title}</td>
@@ -192,7 +195,6 @@ function renderBooksonTable() {
 
 
         let delBtn = document.querySelectorAll(".delBtn");
-        console.log(delBtn, "delBtn");
 
         delBtn.forEach(btn => {
             btn.addEventListener("click", () => { 
@@ -211,5 +213,39 @@ function renderBooksonTable() {
 }
 
 renderBooksonTable();
+
+//? -------------------------------------------- Books list End-------------------------------------
+
+
+//? -------------------------------------------- Contact Us Start-------------------------------------
+
+let contactUstbody = document.querySelector("#contactUstbody");
+
+function renderContacUsesonTable() {
+
+    const contacUses = ref(db, "contactUses/");
+    onValue(contacUses, (snapshot) => {
+
+        const data = snapshot.val();
+        let arr = Object?.entries(data);
+        console.log(arr, "arr");
+             // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
+                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+      contactUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+            return `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${el.fullname}</td>
+            <td>${el.address}</td>
+            <td>${el.email}</td>
+            <td>${el.phone}</td>
+            </tr>`
+        }).join("");
+
+    })
+}
+
+renderContacUsesonTable();
+
+//? -------------------------------------------- Contact Us End-------------------------------------
 
 
