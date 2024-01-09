@@ -2,7 +2,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
-import { getDatabase, ref, set, onValue, remove } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js';
+import { getDatabase, ref, set, push, onValue, remove } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -54,6 +54,42 @@ function renderTodos() {
 }
 
 renderTodos();
+
+
+// ---------------------------------Join Us Starts--------------------------------------------------
+
+const inpFullname = document.querySelector("#inpFullname");
+const inpEmail = document.querySelector("#inpEmail");
+const joinUsBtn = document.querySelector("#joinUsBtn");
+
+
+joinUsBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let joinUsUsObj = {
+        fullname: inpFullname.value,
+        email: inpEmail.value,
+    }
+
+    writeUserData(joinUsUsObj);    //adding jointUsObj to joinUs called
+    console.log("Joined");
+
+    inpFullname.value ="";
+    inpEmail.value = "";
+    
+})
+
+function writeUserData(joinUsUsObj) {
+
+    const reference = ref(db, "joinUses/");//adding jointUsObj to joinUs
+
+    push(reference,  
+        joinUsUsObj
+     );
+}
+
+// ---------------------------------Join Us Ends--------------------------------------------------
+
 
 function checkForDuplicates(arr) {    //function checks For Duplicates in categories
     return [...new Set(arr)];

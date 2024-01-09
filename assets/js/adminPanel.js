@@ -213,6 +213,35 @@ renderBooksonTable();
 
 //? -------------------------------------------- Books list End-------------------------------------
 
+//? -------------------------------------------- Join Us Start-------------------------------------
+
+let joinUstbody = document.querySelector("#joinUstbody");
+
+function renderJoinUsesonTable() {
+
+    const contacUses = ref(db, "joinUses/");
+    onValue(contacUses, (snapshot) => {
+
+        const data = snapshot.val();
+        let arr = Object?.entries(data);
+        console.log(arr, "arr");
+             // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
+                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+  joinUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+            return `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${el.fullname}</td>
+            <td>${el.email}</td>
+            </tr>`
+        }).join("");
+
+    })
+}
+
+renderJoinUsesonTable();
+
+//? -------------------------------------------- Join Us End-------------------------------------
+
 
 //? -------------------------------------------- Contact Us Start-------------------------------------
 

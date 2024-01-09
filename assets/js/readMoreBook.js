@@ -44,9 +44,9 @@ function renderBook() {
                                 <div>${el[1].book.date}</div>
                                 <div class="fs-2">${el[1].book.authors}</div>
                                 <div>${el[1].book.desc}</div>
-                                <form class="d-flex" action="">
+                                <form class="d-flex my-4" action="">
                                     <input  type="text">
-                                    <button type="submit">Comment</button>
+                                    <button type="submit" class="btn btn-warning">Comment</button>
                                 </form>
                                 
                             </div>
@@ -95,11 +95,11 @@ function renderBookComments() {
         for (const el of arr) {
             if (el[1].book.id == currentId) {
 
-                commentsHtml.innerHTML  = (Object.entries(el[1].comments)).map(elem=>{
-                    return `<div>
-                    <div><span>Ad ve Vaxt${elem[1]?.date}</span></div>
-                    <p> Comment${elem[1]?.comment}</p>
-                </div>`;
+                commentsHtml.innerHTML  = (Object.entries(el[1].comments)).reverse().map(elem=>{
+                    return `<div class="d-flex gap-1 flex-column">
+                                <div><span>**** **** ${elem[1]?.date}</span></div>
+                                <p>${elem[1]?.comment}</p>
+                            </div>`;
                 }).join("")
              
             }
@@ -110,5 +110,3 @@ function renderBookComments() {
 }
 
 renderBookComments();
-
-
