@@ -34,13 +34,11 @@ function renderBook() {
 
         let arr = Object.entries(data);
 
-
-    
-
         const bookSection = document.querySelector("#bookSection");
         for (const el of arr) {
             if (el[0] == currentId) {
-                bookSection.innerHTML = `<div class="w-50">
+                bookSection.innerHTML = `<div class="d-flex gap-5">
+                <div class="w-50">
                                 <div>${el[1].book.year}</div>
                                 <div class="fs-1 fw-bolder">${el[1].book.title}</div>
                                 <div>${el[1].book.date}</div>
@@ -50,11 +48,13 @@ function renderBook() {
                                     <input  type="text">
                                     <button type="submit">Comment</button>
                                 </form>
-                                <div id="commentsHtml"></div>
+                                
                             </div>
                             <div class="w-25">
                                 <img class="w-100" src="${el[1].book.image}" alt="Image" srcset="">
-                        </div>`;
+                        </div>
+                        </div>
+                        `;
 
                 let input = document.querySelector("input");
                 let button = document.querySelector("button");
@@ -69,9 +69,10 @@ function renderBook() {
                         date: Date.now()
                     })
 
+                    renderBookComments();
                 })
             }
-            renderBookComments();
+            
         }
 
 
@@ -91,28 +92,23 @@ function renderBookComments() {
 
         let arr = Object.entries(data);
 
-    
-            // console.log(commentsHtml, "commentsHtml");
-        // commentsHtml.innerHTML
-        // let comHt
-        commentsHtml.innerHTML = arr.filter(el => {
+        for (const el of arr) {
             if (el[1].book.id == currentId) {
-                let dt = (Object.entries(el[1].comments))[0][1].date;
-                let cmt = (Object.entries(el[1].comments))[0][1].comment;
 
-                console.log(typeof (Object.entries(el[1].comments))[0][1].comment);
-                console.log(typeof (Object.entries(el[1].comments))[0][1].date);
-                return `<div>
-                            <div><span>${dt}</span></div>
-                            <p>${cmt}</p>
-                        </div>`
+                commentsHtml.innerHTML  = (Object.entries(el[1].comments)).map(elem=>{
+                    return `<div>
+                    <div><span>Ad ve Vaxt${elem[1]?.date}</span></div>
+                    <p> Comment${elem[1]?.comment}</p>
+                </div>`;
+                }).join("")
+             
             }
-        }).join("");
-
+        }
        
-
-        // console.log(comHt, "comHtfgdxg");
     })
 
 }
+
+renderBookComments();
+
 

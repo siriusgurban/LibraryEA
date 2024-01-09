@@ -1,25 +1,10 @@
-const swiper = new Swiper('.swiper', {
+const swiperObj = new Swiper('.swiper', {
     // Optional parameters
     // direction: 'vertical',
     // loop: true,
     slidesPerView: 3,
-    spaceBetween: 50,
+    spaceBetween: 250,
     
-    breakpoints: {
-      
-      640: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-      1280: {
-          slidesPerView: 4,
-        },
-        1300: {
-          slidesPerView: 5,
-        },
-    },
   
     // If we need pagination
     pagination: {

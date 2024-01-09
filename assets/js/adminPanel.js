@@ -22,12 +22,9 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 
-const inp = document.querySelector("#inp");
-const result = document.querySelector("#result");
 let main_card = document.querySelector("#main-card");
 let input1 = document.querySelector("#input1");
-let btnClear = document.querySelector("#btnClear");
-let card = document.querySelector("card");
+let searchBtn = document.querySelector("#searchBtn");
 
 let submitBtn = document.querySelector("#submitBtn");
 let inp1 = document.querySelector("#inp1");
@@ -38,7 +35,7 @@ let dropInpMenu = document.querySelector("#dropInpMenu");
 
 
 console.log(input1.value, "input");
-btnClear.addEventListener("click", (e) => {
+searchBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     fetch(`https://www.googleapis.com/books/v1/volumes/?q={${input1.value}}`)

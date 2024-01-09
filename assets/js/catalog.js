@@ -35,7 +35,6 @@ function renderCatalog() {
         console.log(arr);
 
 
-
         let arrForCheking = arr.map((el) => {       //filtered and uniqued 1
             return el[1].book?.categories;
         }).filter(el => {
@@ -75,7 +74,7 @@ function renderCatalog() {
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
                     console.log(el);
                     return `<div class="swiper-slide">
-                    <div class="card " style="width: 18rem; cursor: pointer">
+                    <div class="card " style="width:450px ; cursor: pointer">
                     <img src="${el.book.image}" class="card-img-top" alt="...">
 
                             <div class="card-body">

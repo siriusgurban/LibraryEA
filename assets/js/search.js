@@ -21,3 +21,56 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
+const searchBtn = document.querySelector("#searchBtn");
+const inp = document.querySelector("#inp");
+const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+// function findAndRenderBooks() {
+
+
+searchBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const books = ref(db, "books/");
+
+    onValue(books, (snapshot) => {
+        const data = snapshot.val();
+
+
+        let arr = Object.entries(data);
+        console.log(arr);
+
+        let arrBook = (arr.map(el => el[1]));
+        console.log(arrBook);
+
+        let filteredArr = [];
+        for (const el of arrBook) {
+            if (el?.book.title.includes(inp.value)) {
+                filteredArr.push( `<div class="swiper-slide">
+                    <div class="card mb-3" style="max-width: 960px; padding: 20px">
+                        <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="${el?.book.image}" class="card-img-bottom" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                            <h5 class="card-title fs-3 fw-bold mt-3">${el?.book.title}</h5>
+                            <p class="card-text fs-3 mt-3">${el?.book.authors}</p>
+                            <p class="card-text fs-4 mt-3 overflow-y-auto" style="height: 300px">${el?.book.desc}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                `)
+            }
+
+        }
+        swiperWrapper.innerHTML = filteredArr.join("");
+    })
+
+
+})
+// }
+
+// findAndRenderBooks();
