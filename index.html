@@ -12,25 +12,47 @@
 </head>
 
 <body>
-    <header class="container" style="height: 80px;">
-        <div class="d-flex justify-content-between align-items-center">
-            <a href="index.html">Library</a>
+    <header class="container">
+        <div class="d-flex justify-content-between align-items-center my-auto" style="height: 100px;">
+
+            <div>
+                <a class="text-decoration-none" href="#">
+                    <div class="d-flex gap-2">
+                        <img src="./assets/icon/logo_red.svg" alt="">
+                        <div class="d-flex flex-column gap-1">
+                            <div class="text-danger fw-bold text-uppercase">Library</div>
+                            <div style="background-color: #C3C0BD; height: 1px;"></div>
+                            <div class="text-secondary">book store</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
             <nav>
                 <ul class="d-flex gap-3">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="./assets/pages/catalog.html">Catalog</a></li>
-                    <li><a href="./assets/pages/about.html">About Store</a></li>
-                    <li><a href="./assets/pages/contactUs.html">Contact Us</a></li>
-                    <li><a href="./assets/pages/search.html">Search</a></li>
+                    <li><a href="index.html" class="link-warning text-warning">Home</a></li>
+                    <li><a href="./assets/pages/catalog.html"
+                            class="text-decoration-none link-warning text-secondary">Catalog</a></li>
+                    <li><a href="./assets/pages/about.html"
+                            class="text-decoration-none link-warning text-secondary">About Store</a></li>
+                    <li><a href="./assets/pages/contactUs.html"
+                            class="text-decoration-none link-warning text-secondary">Contact Us</a></li>
+                    <li><a href="./assets/pages/search.html"
+                            class="text-decoration-none link-warning text-secondary">Search</a></li>
                 </ul>
             </nav>
-            <!-- <div class="">Join Us</div> -->
+
             <div type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Join Us
+                <div class="d-flex align-items-center gap-2">
+                    <img src="./assets/icon/personal_icon.svg" alt="">
+                    <div>Join Us</div>
+                </div>
             </div>
-            <div><a href="./assets/pages/adminPanel.html">Admin Panel</a></div>
+
         </div>
     </header>
+
+    
     <main>
 
         <!-- Modal -->
@@ -59,7 +81,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button  type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
                     </div>
                 </div>
@@ -67,66 +89,129 @@
         </div>
 
 
-        <section class="container">
+        <section class="container mb-5" style="color: var(--color-main)">
 
-            <div class="container d-flex justify-content-between gap-5 mt-5">
-                <div class="w-50">
-                    <h2 class="fs-1">Books from A to Z</h2>
-                    <div class="fs-2">
+            <div class="container d-flex justify-content-between align-items-center gap-5 mt-5 ">
+                <div class="w-50 d-flex flex-column gap-5">
+                    <h2 class="fs-2 fw-bold">Books from A to Z</h2>
+                    <div class="fs-5 lh-lg">
                         In our store you can find a book for every taste. A large assortment. Nice prices. Interesting
                         stories.</div>
-                    <button class="btn btn-warning"><a href="./assets/pages/catalog.html">Go to Catalog</a></button>
+                    <button class="btn btn-warning  text-secondary zoom w-50 shadow"><a class="text-decoration-none text-white" href="./assets/pages/catalog.html">Go to Catalog</a></button>
                 </div>
-                <div class="w-50"><img class="w-100" src="./assets/images/books_red_bg.svg" alt="books" srcset=""></div>
+                <div class="w-50"><img class="w-100 zoom" src="./assets/images/books_red_bg.svg" alt="books" srcset=""></div>
             </div>
 
-            <div>
-                <h3 class="fs-3 text-center mt-5">Catalog</h3>
+        </section>
+
+
+        <section style="color: var(--color-main)">
+            <div class="container d-flex flex-column gap-5" style="max-width: 1000px;">
+                <h3 class="fs-3 text-center fw-bold">Catalog</h3>
                 <div id="catalog" class="d-flex flex-wrap justify-content-center gap-5">
 
                 </div>
             </div>
-            </div>
+        </section>
 
-            <div>
-                <div class="text-center fs-3 mt-5">About Store</div>
+
+        <section class="d-flex align-items-center" style="height: 410px; color: var(--color-main)">
+
+            <div class="container d-flex align-items-between align-items-between flex-column gap-4">
+                <div class="text-center fs-3 fw-bold">About Store</div>
                 <div class="d-flex justify-content-between">
-                    <div>35 Branches the country </div>
-                    <div>898 Products catalog</div>
-                    <div>18659 Buyers</div>
-                    <div>72 Hours delivery to cities</div>
-                </div>
-            </div>
-
-            <div>
-                <div class="fs-3 mt-5 text-center mt-5">Delivery</div>
-                <div class="text-center">
-
-                    We work without holidays and weekends! Residents of Kiev can receive an order on the day of its
-                    registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending
-                    on
-                    the location of the settlement and the selected delivery method. Orders over UAH 1000 are delivered
-                    free
-                    of charge *. You can see the available methods, exact terms and cost of delivery during checkout in
-                    the
-                    order basket, aafter selecting the delivery city. More details
-                </div>
-            </div>
-
-            <div>
-                <div class="fs-3 text-center mt-5">Follow us on social media</div>
-                <div class="d-flex justify-content-center">
-                    <div>FB</div>
-                    <div>Insta</div>
-                    <div>X</div>
+                    <div><span class="fs-1 fw-bold">35</span> Branches the country </div>
+                    <div><span class="fs-1 fw-bold">898</span> Products catalog</div>
+                    <div><span class="fs-1 fw-bold">18659</span> Buyers</div>
+                    <div><span class="fs-1 fw-bold">72</span> Hours delivery to cities</div>
                 </div>
             </div>
 
         </section>
 
 
+        <section style="height: 160px; color: var(--color-main)">
+            <div class="container d-flex align-items-center justify-content-center gap-4 flex-column">
+                <div class=" fs-3 fw-bold text-center ">Delivery</div>
+                <div class="text-center lh-lg">We work without holidays and weekends! Residents of Kiev can receive an
+                    order on the day of its
+                    registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending
+                    on the location of the settlement and the selected delivery method. Orders over UAH 1000 are
+                    delivered
+                    free of charge *. You can see the available methods, exact terms and cost of delivery during
+                    checkout in
+                    the order basket, aafter selecting the delivery city. More details
+                </div>
+            </div>
+        </section>
+
+
+        <section class="d-flex align-items-center justify-content-center"
+            style="height: 410px; color: var(--color-main)">
+            <div class="d-flex flex-column gap-4">
+                <div class="fs-3 fw-bold text-center">Follow us on social media</div>
+                <div class="d-flex justify-content-center gap-2">
+                    <div><img src="./assets/icon/facebookicon.svg" class="zoom" alt="facebook"></div>
+                    <div><img src="./assets/icon/instagramicon.svg" class="zoom" alt="instagram"></div>
+                    <div><img src="./assets/icon/twettericon.svg" class="zoom" alt="twetter"></div>
+                </div>
+            </div>
+        </section>
+
+
+
     </main>
-    <footer class="fs-2 text-center bg-secondary">Footer</footer>
+
+    <footer class="" style="background-color: var(--color-footer);">
+
+        <div class="container d-flex justify-content-between align-items-center" style="height: 310px;">
+
+            <div>
+                <a class="text-decoration-none" href="#">
+                    <div class="d-flex gap-2 align-items-center">
+                        <img src="./assets/icon/logo.svg" alt="logo">
+                        <div class="d-flex flex-column gap-2">
+                            <div class="text-white fw-bold text-uppercase">Library</div>
+                            <div style="background-color: #C3C0BD; height: 1px;"></div>
+                            <div class="text-white text-uppercase">book store</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="d-flex flex-column text-white gap-2 text-start" style=" cursor:pointer">
+                <div class="fs-5 ">Popular</div>
+                <div class="text-white link-secondary">Programming</div>
+                <div class="text-white link-secondary">Books for children</div>
+                <div class="text-white link-secondary">Psychology</div>
+                <div class="text-white link-secondary">Business</div>
+            </div>
+
+            <div class="d-flex flex-column text-white  gap-2 text-start" style=" cursor:pointer">
+                <div class="fs-5">Cash</div>
+                <div class="text-white link-secondary">Delivery</div>
+                <div class="text-white link-secondary">Payment</div>
+                <div class="text-white link-secondary">About the store</div>
+            </div>
+
+            <div class="d-flex flex-column text-white  gap-2 text-start" style=" cursor:pointer">
+                <div class="fs-5">Help</div>
+                <div class="text-white link-secondary">Contacts</div>
+                <div class="text-white link-secondary">Purchase returns</div>
+                <div class="text-white link-secondary">Buyer help</div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center gap-2 ">
+                <div class="fw-bold text-white">+994511234567</div>
+                <button class="border border-warning text-warning link-secondary"
+                    style="background-color: var(--color-footer); padding: 8px 50px;">Request a call</button>
+            </div>
+
+        </div>
+        <div class="text-white d-flex justify-content-center align-items-center" style="height: 40px;">
+            <div>All rights reserved © 2003-2024 LIBRARY TERMS OF USE | Privacy Policy</div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

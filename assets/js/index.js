@@ -46,8 +46,8 @@ function renderTodos() {
 
         catalog.innerHTML = checkForDuplicates(arrForCheking).map((el, index) => {      //maping categories to home page
             console.log(el);
-            return `<div class="card bg-secondary" style="width: 18rem; padding: 20px 50px;">
-                        <h5 class="card-title text-center">${el}</h5>
+            return `<div class="card  shadow zoom bg-body" style="min-width: 18rem; padding: 20px 30px;">
+                        <h5 class="card-title text-center fw-bold">${el}</h5>
                     </div>`;
         }).join("");
     })
