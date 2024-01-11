@@ -273,5 +273,31 @@ function renderContacUsesonTable() {
 renderContacUsesonTable();
 
 //? -------------------------------------------- Contact Us End-------------------------------------
+//? -------------------------------------------- Admin Authecation Start--------------------------------------
+
+const adminCard = document.querySelector("#adminCard");
+const adminForm = document.querySelector("#adminForm");
+
+localStorage.setItem("username", "admin");
+localStorage.setItem("password", "1234");
+
+let username = localStorage.getItem("username");
+let password = localStorage.getItem("password");
+
+adminForm.addEventListener("submit", ()=>{
+
+function adminChecker(id, pass) {
+    if(id=="user" && pass == "1234"){
+        adminCard.style.display ="none";
+    }
+}
+
+adminChecker(username, password);
+
+})
+
+
+
+//? -------------------------------------------- Admin Authecation End-------------------------------------
 
 
