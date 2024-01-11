@@ -11,7 +11,7 @@
     <title>Contact Us</title>
 </head>
 
-<body>
+<body style="background-color: var(--color-body);">
     <header class="container" >
         <div class="d-flex justify-content-between align-items-center" style="height: 100px;">
 
@@ -82,32 +82,32 @@
             </div>
         </div>
 
-        <section class="container">
-            <h1 class="fs-1 fw-bolder mb-5">Contact Us</h1>
-            <form class="row">
+        <section class="container mt-5" style="color: var(--color-main);">
+            <h1 class="fs-2 fw-bold mb-5">Contact Us</h1>
+            <form class="row text-secondary" style="">
                 <div class="mb-3 col-6">
                     <label for="inpFullname" class="form-label fs-4">Full Name</label>
-                    <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp">
+                    <input type="text" class="form-control p-3" id="inpFullname" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="inpEmail" class="form-label fs-4">Email address</label>
-                    <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp">
+                    <input type="email" class="form-control p-3" id="inpEmail" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="inpAddress" class="form-label fs-4">Address</label>
-                    <input type="text" class="form-control" id="inpAddress" aria-describedby="emailHelp">
+                    <input type="text" class="form-control p-3" id="inpAddress" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="inpPhone" class="form-label fs-4">Phone</label>
-                    <input type="number" class="form-control" id="inpPhone" aria-describedby="emailHelp">
+                    <input type="number" class="form-control p-3" id="inpPhone" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="inpNote" class="form-label fs-4">Note</label>
-                    <textarea class="form-control" id="inpNote" rows="3" maxlength="100"></textarea>
-                    <div class="mt-2"><span>0</span>/100</div>
+                    <textarea class="form-control" id="inpNote" rows="6" maxlength="100" required></textarea>
+                    <div class="mt-2"><span id="note100">0</span>/100</div>
                 </div>
 
-                <button type="submit" class="btn btn-warning col-3 m-auto fs-4">Submit</button>
+                <button type="submit" class="btn btn-warning col-3 m-auto fs-4 p-3 zoom text-white ">Submit</button>
             </form>
         </section>
 

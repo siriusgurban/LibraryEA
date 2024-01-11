@@ -11,7 +11,7 @@
     <title>Library</title>
 </head>
 
-<body>
+<body style="background-color: var(--color-body);">
     <header class="container">
         <div class="d-flex justify-content-between align-items-center my-auto" style="height: 100px;">
 
@@ -52,41 +52,58 @@
         </div>
     </header>
 
-    
+
     <main>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-            style="margin-top:200px">
+            style="margin-top:150px;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header row">
-                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
+                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-12" id="exampleModalLabel">Join Us
                         </h1>
-                        <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <!-- <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
+                            aria-label="Close"></button> -->
                     </div>
                     <div class="modal-body">
-                        <form class="row" action="">
-                            <div class="mb-3 col-12">
+
+                        <form class="row" action="" id="joinUsBtn">
+                            <div class="mb-3 col-11 m-auto">
                                 <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
-                                <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
-                                    placeholder="Full Name">
+                                <input type="text" class="form-control p-3" id="inpFullname"
+                                    aria-describedby="emailHelp" placeholder="Full Name" required />
                             </div>
-                            <div class="mb-3 col-12">
+                            <div class="mb-3 col-11 m-auto">
                                 <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
-                                <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
-                                    placeholder="Email address">
+                                <input type="email" class="form-control p-3" id="inpEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address" name="username" required />
+                            </div>
+                            <div class="modal-footer w-100 d-flex">
+                                <button type="button" class="btn btn-danger zoom w-25"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button id="" type="submit"
+                                    class="btn btn-warning text-white zoom w-25">Join</button>
                             </div>
                         </form>
+                        
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
-                    </div>
+
                 </div>
             </div>
         </div>
+
+        <!-- <form>
+            <div class="group">
+              <input type="text" />
+              <label>Normal</label>
+            </div>
+            <div class="group">
+              <input type="text" required />
+              <label>Required</label>
+            </div>
+            <input type="submit" />
+          </form> -->
 
 
         <section class="container mb-5" style="color: var(--color-main)">
@@ -97,9 +114,12 @@
                     <div class="fs-5 lh-lg">
                         In our store you can find a book for every taste. A large assortment. Nice prices. Interesting
                         stories.</div>
-                    <button class="btn btn-warning  text-secondary zoom w-50 shadow"><a class="text-decoration-none text-white" href="./assets/pages/catalog.html">Go to Catalog</a></button>
+                    <button class="btn btn-warning text-secondary zoom w-50 shadow py-3"><a
+                            class="text-decoration-none text-white" href="./assets/pages/catalog.html">Go to
+                            Catalog</a></button>
                 </div>
-                <div class="w-50"><img class="w-100 zoom" src="./assets/images/books_red_bg.svg" alt="books" srcset=""></div>
+                <div class="w-50"><img class="w-100 zoom" src="./assets/images/books_red_bg.svg" alt="books" srcset="">
+                </div>
             </div>
 
         </section>

@@ -12,7 +12,7 @@
     <title>Library</title>
 </head>
 
-<body>
+<body style="background-color: var(--color-body);">
     <header class="container" style="height: 80px;">
         <div class="d-flex justify-content-between align-items-center" style="height: 100px;">
 
@@ -28,13 +28,16 @@
                     </div>
                 </a>
             </div>
-            
+
             <nav>
                 <ul class="d-flex gap-3">
-                    <li><a href="../../index.html" class="text-decoration-none link-warning text-secondary">Home</a></li>
+                    <li><a href="../../index.html" class="text-decoration-none link-warning text-secondary">Home</a>
+                    </li>
                     <li><a href="catalog.html" class="text-decoration-none link-warning text-secondary">Catalog</a></li>
-                    <li><a href="about.html" class="text-decoration-none link-warning text-secondary">About Store</a></li>
-                    <li><a href="contactUs.html" class="text-decoration-none link-warning text-secondary">Contact Us</a></li>
+                    <li><a href="about.html" class="text-decoration-none link-warning text-secondary">About Store</a>
+                    </li>
+                    <li><a href="contactUs.html" class="text-decoration-none link-warning text-secondary">Contact Us</a>
+                    </li>
                     <li><a href="search.html" class=" link-warning text-warning">Search</a></li>
                 </ul>
             </nav>
@@ -48,53 +51,58 @@
 
         </div>
     </header>
+
+
     <main>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-style="margin-top:200px">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header row">
-            <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
-            </h1>
-            <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form class="row" action="">
-                <div class="mb-3 col-12">
-                    <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
-                    <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
-                        placeholder="Full Name">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            style="margin-top:200px">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header row">
+                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
+                        </h1>
+                        <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row" action="">
+                            <div class="mb-3 col-12">
+                                <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
+                                <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
+                                    placeholder="Full Name">
+                            </div>
+                            <div class="mb-3 col-12">
+                                <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
+                                <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
+                    </div>
                 </div>
-                <div class="mb-3 col-12">
-                    <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
-                    <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
-                        placeholder="Email address">
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
-        </div>
-    </div>
-</div>
-</div>
 
-        <section class="container">
+        <section class="container " style="color: var(--color-main);">
 
             <div class="d-flex justify-content-between gap-5 mt-5">
+
                 <div class="w-25">
-                    <h2 class="fs-1 mb-3">Search</h2>
-                    <div class="input-group mb-3">
-                        <input id="inp" type="text" class="form-control" placeholder="Book's name" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button id="searchBtn" class="btn btn-outline-warning" type="button">Search</button>
+                    <div class="d-flex flex-column gap-5">
+                        <h2 class="fs-2 fw-bold">Search</h2>
+                        <input id="inp" type="text" class="form-control w-100 p-3" placeholder="Book's name"
+                            aria-describedby="basic-addon2">
+                        <div class="">
+                            <button id="searchBtn" class="btn btn-outline-warning w-100 zoom p-3 fw-bold" type="button">Search</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="w-75">
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -105,21 +113,31 @@ style="margin-top:200px">
 
 
                             <div class="swiper-slide">
-                                <div class="card mb-3" style="max-width: 960px;">
+                                <div class="card mb-3" style="max-width: 960px; padding: 60px 30px;">
                                     <div class="row g-0">
-                                      <div class="col-md-6">
-                                        <img src="../images/hand-drawn-flat-design-stack-books_23-2149334862.avif" class="card-img-bottom" class="img-fluid rounded-start" alt="...">
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="card-body">
-                                          <h5 class="card-title fs-3 fw-bold">${el.book.title}</h5>
-                                          <p class="card-text fs-3">${el.book.authors}</p>
-                                          <p class="card-text fs-4 overflow-y-auto" style="height: 300px">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <div class="col-md-6">
+                                            <img src="../images/hand-drawn-flat-design-stack-books_23-2149334862.avif"
+                                                class="card-img-bottom" class="img-fluid rounded-start" alt="...">
                                         </div>
-                                      </div>
+                                        <div class="col-md-6 ">
+                                            <div class="card-body d-flex flex-column gap-4">
+                                                <h5 class="card-title fs-3 fw-bold">Title of book</h5>
+                                                <p class="card-text fs-3">Authors of book</p>
+                                                <p class="card-text fs-4 overflow-y-auto" style="height: 300px">This is
+                                                    a wider card with supporting text below as a natural lead-in to
+                                                    additional content. This content is a little bit longer. This is a
+                                                    wider card with supporting text below as a natural lead-in to
+                                                    additional content. This content is a little bit longerThis is a
+                                                    wider card with supporting text below as a natural lead-in to
+                                                    additional content. This content is a little bit longer. This is a
+                                                    wider card with supporting text below as a natural lead-in to
+                                                    additional content. This content is a little bit longer.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
+                                </div>
                             </div>
+
                             ...
                         </div>
                         <!-- If we need pagination -->
@@ -205,7 +223,7 @@ style="margin-top:200px">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
     <script type="module" src="../js/swiperSearch.js"></script>

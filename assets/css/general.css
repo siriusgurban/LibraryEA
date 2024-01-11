@@ -7,6 +7,8 @@ body{
 :root{
   --color-main: #241400;
   --color-footer: #391F00;
+  --color-body: #fffaf5;
+
 }
 
 .zoom {

@@ -12,7 +12,7 @@
     <title>Library</title>
 </head>
 
-<body>
+<body style="background-color: var(--color-body);">
     <header class="container">
         <div class="d-flex justify-content-between align-items-center" style="height: 100px;">
 
@@ -87,12 +87,15 @@
         </div>
 
 
-        <section class="container">
+        <section class="container" style="color: var(--color-main)">
 
-            <div class="my-5 d-flex gap-5">
-                <div class="fs-2">All Books</div>
-                <div id="categories" class="d-flex gap-3"></div>
+            <div class="my-5 d-flex align-items-center gap-5">
+                <div class="fs-2 fw-bold">All Books</div>
+                <div id="categories" class="d-flex gap-3">
+                    
+                </div>
             </div>
+
             <div class="">
                 <!-- Slider main container -->
                 <div class="swiper">
@@ -101,6 +104,7 @@
                         <!-- Slides -->
                         <!-- <div class="swiper-slide">Slide 1</div> -->
 
+                        
 
                         ...
                     </div>
@@ -115,11 +119,11 @@
                     <!-- <div class="swiper-scrollbar"></div> -->
                 </div>
             </div>
-            <div>
-                <div class="fs-2">Bestseller</div>
+            <div class="">
+                <div class="fs-2 fw-bold mt-5 mb-3">Bestseller</div>
             </div>
             <div>
-                <div class="fs-2">New releases</div>
+                <div class="fs-2 fw-bold mt-5 mb-3">New releases</div>
             </div>
 
 
@@ -196,6 +200,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script type="module" src="../js/swiperCatalog.js"></script>
+    <script type="module" src="../js/swiperCatalogCategories.js"></script>
     <script type="module" src="../js/catalog.js"></script>
 </body>
 

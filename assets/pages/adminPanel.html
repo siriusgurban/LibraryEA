@@ -28,42 +28,43 @@
                 <h2 class="fs-2">Log Out</h2>
             </div>
             <div class="" style="margin-left: 30%;">
-                
+
 
                 <form id="home" class="form-inline mb-4 d-flex justify-content-center gap-3 ">
                     <div class="fs-3 ">Add book</div>
                     <input id="input1" class="form-control mr-sm-2 w-50" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button id="searchBtn" class="btn btn-outline-danger my-2 my-sm-0 w-25" type="submit">Search</button>
+                        aria-label="Search" required>
+                    <button id="searchBtn" class="btn btn-outline-danger my-2 my-sm-0 w-25"
+                        type="submit">Search</button>
                 </form>
-                
+
                 <div id="main-card" class="d-flex flex-wrap justify-content-between m-3">
 
                 </div>
 
-                <form>
+                <form id="submitBtn">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">authors</label>
                         <input id="inp1" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" value>
+                            aria-describedby="emailHelp" value required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">title</label>
                         <input id="inp2" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" value>
+                            aria-describedby="emailHelp" value required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Id</label>
                         <input id="inp4" data-img type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" value>
+                            aria-describedby="emailHelp" value required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Categories</label>
                         <input id="inp3" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" value>
+                            aria-describedby="emailHelp" value required>
                     </div>
 
 
@@ -82,8 +83,9 @@
                             <label class="btn btn-outline-primary" for="btnradio2">Manual Add</label>
                         </div>
 
-                        <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    <button id="" type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
 
                 <!-------------------------------------------- Books list Start------------------------------------->

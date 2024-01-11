@@ -73,18 +73,19 @@ function renderCatalog() {
 
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
                     console.log(el);
-                    return `<div class="swiper-slide">
-                    <div class="card " style="width:450px ; cursor: pointer">
-                    <img src="${el.book.image}" class="card-img-top" alt="...">
+                    return `<div class="swiper-slide shadow rounded " style="">
+                    <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                    <img src="${el.book.image}" class="card-img-top" alt="..." width="130" height="180">
+    
+                            <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
+    
+                                <h4 class="card-title fw-bold overflow-hidden" style="height: 30px">${el.book.authors}</h4>
+                                <h5 class="card-title fst-italic overflow-hidden" style="height: 16px">${el.book.title}</h5>
+                                <h5 class="card-title overflow-hidden" style="height: 16px">${el.book.categories}</h5>
+                                <button class="btn btn-warning zoom text-white fw-bold readMoreBtn" data-id="${el.book.id}">Read More</button>
 
-                            <div class="card-body">
-
-                                <h4 class="card-title fw-3">${el.book.authors}</h4>
-                                <h5 class="card-title">${el.book.title}</h5>
-                                <h5 class="card-title">${el.book.categories}</h5>
-                                <button class="btn btn-primary readMoreBtn" data-id="${el.book.id}">Read More</button>
                             </div>
-
+    
                         </div>
                     </div>`;
                 }).join("");
@@ -114,6 +115,7 @@ function renderDetailPage(id) {
 
 function renderAllBooks() {
     const books = ref(db, "books/");
+    // let defaultImg = ;
 
     onValue(books, (snapshot) => {
         const data = snapshot.val();
@@ -124,16 +126,17 @@ function renderAllBooks() {
         swiperWrapper.innerHTML = 
         arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
             console.log(el);
-            return `<div class="swiper-slide">
-                    <div class="card " style="width: 18rem; cursor: pointer">
-                    <img src="${el.book.image}" class="card-img-top" alt="...">
+            return `<div class="swiper-slide shadow-lg rounded " style="">
+                    <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                    <img src="${el.book.image=="undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
     
-                                <h4 class="card-title fw-3">${el.book.authors}</h4>
-                                <h5 class="card-title">${el.book.title}</h5>
-                                <h5 class="card-title">${el.book.categories}</h5>
-                                <button class="btn btn-primary readMoreBtn" data-id="${el.book.id}">Read More</button>
+                                <h4 class="card-title fw-bold overflow-hidden" style="height: 30px">${el.book.authors}</h4>
+                                <h5 class="card-title fst-italic overflow-hidden" style="height: 16px">${el.book.title}</h5>
+                                <h5 class="card-title overflow-hidden" style="height: 16px">${el.book.categories}</h5>
+                                <button class="btn btn-warning zoom text-white fw-bold readMoreBtn" data-id="${el.book.id}">Read More</button>
+
                             </div>
     
                         </div>

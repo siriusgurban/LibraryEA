@@ -63,8 +63,10 @@ const inpEmail = document.querySelector("#inpEmail");
 const joinUsBtn = document.querySelector("#joinUsBtn");
 
 
-joinUsBtn.addEventListener("click", (e) => {
+joinUsBtn.addEventListener("submit", (e) => {
     e.preventDefault();
+
+
 
     let joinUsUsObj = {
         fullname: inpFullname.value,

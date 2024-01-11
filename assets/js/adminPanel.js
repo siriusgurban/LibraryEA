@@ -76,7 +76,7 @@ searchBtn.addEventListener("click", (e) => {
         })
 })
 
-submitBtn.addEventListener("click", (e) => {//add function called
+submitBtn.addEventListener("submit", (e) => {//add function called
     e.preventDefault();
 
     let bookObj;
@@ -90,7 +90,7 @@ submitBtn.addEventListener("click", (e) => {//add function called
     console.log(bookObj, "bookObj");
     writeUserData(inp4.value, bookObj)
     console.log("added");
-    // inp.value = "";
+    inp1.value = "", inp2.value = "", inp3.value = "", inp4.value = "";
     // renderTodos()
     renderBooksCategories();
 })

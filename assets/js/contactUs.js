@@ -27,6 +27,7 @@ const inpEmail = document.querySelector("#inpEmail");
 const inpAddress = document.querySelector("#inpAddress");
 const inpPhone = document.querySelector("#inpPhone");
 const inpNote = document.querySelector("#inpNote");
+const note100 = document.querySelector("#note100");
 const button = document.querySelector("button");
 
 
@@ -53,5 +54,11 @@ function writeUserData(contactUsObj) {
         contactUsObj
      );
 }
+
+
+inpNote.addEventListener("input", ()=>{             //on input at note area it stops you when you reached maxlength(100 simvols)
+    note100.textContent = inpNote.value.length;
+    console.log(inpNote.value.length);
+})
 
 

@@ -11,7 +11,7 @@
     <title>Library</title>
 </head>
 
-<body>
+<body style="background-color: var(--color-body);">
     <header class="container">
         <div class="d-flex justify-content-between align-items-center" style="height: 100px;">
 
@@ -20,20 +20,22 @@
                     <div class="d-flex gap-2">
                         <img src="../icon/logo_red.svg" alt="">
                         <div class="d-flex flex-column gap-1">
-                            <div class="text-danger fw-bold text-uppercase" >Library</div>
+                            <div class="text-danger fw-bold text-uppercase">Library</div>
                             <div style="background-color: #C3C0BD; height: 1px;"></div>
                             <div class="text-secondary">book store</div>
                         </div>
                     </div>
                 </a>
             </div>
-            
+
             <nav>
                 <ul class="d-flex gap-3">
-                    <li><a href="../../index.html" class="text-decoration-none link-warning text-secondary">Home</a></li>
+                    <li><a href="../../index.html" class="text-decoration-none link-warning text-secondary">Home</a>
+                    </li>
                     <li><a href="catalog.html" class="text-decoration-none link-warning text-secondary">Catalog</a></li>
                     <li><a href="about.html" class=" link-warning text-warning">About Store</a></li>
-                    <li><a href="contactUs.html" class="text-decoration-none link-warning text-secondary">Contact Us</a></li>
+                    <li><a href="contactUs.html" class="text-decoration-none link-warning text-secondary">Contact Us</a>
+                    </li>
                     <li><a href="search.html" class="text-decoration-none link-warning text-secondary">Search</a></li>
                 </ul>
             </nav>
@@ -48,52 +50,54 @@
     </header>
     <main>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-style="margin-top:200px">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header row">
-            <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
-            </h1>
-            <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form class="row" action="">
-                <div class="mb-3 col-12">
-                    <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
-                    <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
-                        placeholder="Full Name">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            style="margin-top:200px">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header row">
+                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
+                        </h1>
+                        <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row" action="">
+                            <div class="mb-3 col-12">
+                                <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
+                                <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
+                                    placeholder="Full Name">
+                            </div>
+                            <div class="mb-3 col-12">
+                                <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
+                                <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
+                    </div>
                 </div>
-                <div class="mb-3 col-12">
-                    <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
-                    <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
-                        placeholder="Email address">
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
-        </div>
-    </div>
-</div>
-</div>
 
         <section class="container">
 
-            <div class="d-flex justify-content-between gap-5 mt-5">
-                <div class="w-50">
-                    <h2 class="fs-1">About</h2>
-                    <div class="fs-2">
+            <div class="d-flex justify-content-between gap-5" style="color: var(--color-main);">
+                <div class="w-50 d-flex flex-column gap-4 mt-5">
+                    <h2 class="fs-1 fw-bold">About</h2>
+                    <p class="fs-5 lh-lg">
                         We work without holidays and weekends! Residents of Kiev can receive an order on the day of its
                         registration. Customers from other cities of Ukraine can receive an order within 1-5 days,
                         depending on the location of the settlement and the selected delivery method. Orders over UAH
                         1000 are delivered free of charge *. You can see the available methods, exact terms and cost of
-                        delivery during checkout in the order basket, after selecting the delivery city.</div>
+                        delivery during checkout in the order basket, after selecting the delivery city.</p>
                 </div>
-                <div class="w-50"><img class="w-100" src="../images/hand-drawn-flat-design-stack-books_23-2149334862.avif" alt="books" srcset=""></div>
+                <div class="w-50" ><img class="w-100"
+                        src="../images/hand-drawn-flat-design-stack-books_23-2149334862.avif" alt="books" srcset="">
+                </div>
             </div>
 
         </section>
