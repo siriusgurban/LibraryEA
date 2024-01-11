@@ -75,7 +75,7 @@ function renderCatalog() {
                     console.log(el);
                     return `<div class="swiper-slide shadow rounded " style="">
                     <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
-                    <img src="${el.book.image}" class="card-img-top" alt="..." width="130" height="180">
+                    <img src="${el.book.image=="undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
                             <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
     

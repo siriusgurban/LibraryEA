@@ -51,7 +51,7 @@ searchBtn.addEventListener("click", (e) => {
                     <div class="card mb-3" style="max-width: 960px; max-height: 560px;  padding: 50px 30px;">
                         <div class="row g-3 p-3">
                         <div class="col-md-6">
-                            <img src="${el?.book.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
+                            <img src="${el.book.image=="undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body d-flex flex-column gap-4">

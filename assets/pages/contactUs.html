@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../icon/logo_red.svg" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/general.css">
@@ -51,40 +52,48 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-            style="margin-top:200px">
+            style="margin-top:150px;">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header row">
-                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-8" id="exampleModalLabel">Join Us
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-12" id="exampleModalLabel">Join Us
                         </h1>
-                        <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <!-- <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
+                            aria-label="Close"></button> -->
                     </div>
+                    
                     <div class="modal-body">
-                        <form class="row" action="">
-                            <div class="mb-3 col-12">
+                        <div id="successAlert">
+                            
+                        </div>
+                        <form class="row" action="" id="joinUsBtn">
+                            <div class="mb-3 col-11 m-auto">
                                 <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
-                                <input type="text" class="form-control" id="inpFullname" aria-describedby="emailHelp"
-                                    placeholder="Full Name">
+                                <input type="text" class="form-control p-3" id="inpFullname"
+                                    aria-describedby="emailHelp" placeholder="Full Name" required />
                             </div>
-                            <div class="mb-3 col-12">
+                            <div class="mb-3 col-11 m-auto">
                                 <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
-                                <input type="email" class="form-control" id="inpEmail" aria-describedby="emailHelp"
-                                    placeholder="Email address">
+                                <input type="email" class="form-control p-3" id="inpEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address" name="username" required />
+                            </div>
+                            <div class="modal-footer w-100 d-flex gap-2">
+                                <button type="button" class="btn btn-danger zoom w-25"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button id="" type="submit"
+                                    class="btn btn-warning text-white zoom w-25">Join</button>
                             </div>
                         </form>
+                        
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button id="joinUsBtn" type="button" class="btn btn-warning">Join</button>
-                    </div>
+
                 </div>
             </div>
         </div>
 
         <section class="container mt-5" style="color: var(--color-main);">
             <h1 class="fs-2 fw-bold mb-5">Contact Us</h1>
-            <form class="row text-secondary" style="">
+            <form class="row text-secondary" id="contactUsForm">
                 <div class="mb-3 col-6">
                     <label for="inpFullname" class="form-label fs-4">Full Name</label>
                     <input type="text" class="form-control p-3" id="inpFullname" aria-describedby="emailHelp" required>
@@ -105,6 +114,9 @@
                     <label for="inpNote" class="form-label fs-4">Note</label>
                     <textarea class="form-control" id="inpNote" rows="6" maxlength="100" required></textarea>
                     <div class="mt-2"><span id="note100">0</span>/100</div>
+                </div>
+                <div id="successAlertContactUs">
+                 
                 </div>
 
                 <button type="submit" class="btn btn-warning col-3 m-auto fs-4 p-3 zoom text-white ">Submit</button>
@@ -179,6 +191,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script type="module" src=".././js/joinUs.js"></script>
     <script type="module" src="../js/contactUs.js"></script>
 </body>
 

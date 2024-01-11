@@ -47,7 +47,7 @@ searchBtn.addEventListener("click", (e) => {
                 return `<div class="card my-4 " style="width: 18rem; cursor: pointer">
 
                             <div class="card-body">
-                                <h4 class="card-title fw-3">${el.volumeInfo.authors}</h4>
+                                <h4 class="card-title fw-bold">${el.volumeInfo.authors}</h4>
                                 <h5 class="card-title">${el.volumeInfo.title}</h5>
                                 <h5 class="card-title">${el.volumeInfo.categories}</h5>
                                 <button class="btn btn-primary addBtn" data-id="${el.id}" data-year="${el.volumeInfo?.publishedDate}" data-desc="${el.volumeInfo.description}" data-image="${el.volumeInfo.imageLinks?.thumbnail}" data-title="${el.volumeInfo.title}" data-authors="${el.volumeInfo.authors}" data-categories="${el.volumeInfo.categories}">Add</button>

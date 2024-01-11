@@ -28,10 +28,11 @@ const inpAddress = document.querySelector("#inpAddress");
 const inpPhone = document.querySelector("#inpPhone");
 const inpNote = document.querySelector("#inpNote");
 const note100 = document.querySelector("#note100");
-const button = document.querySelector("button");
+const contactUsForm = document.querySelector("#contactUsForm");
+const successAlertContactUs = document.querySelector("#successAlertContactUs");
 
 
-button.addEventListener("click", (e) => {
+contactUsForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let contactUsObj = {
@@ -44,21 +45,35 @@ button.addEventListener("click", (e) => {
 
     writeUserData(contactUsObj);    //adding contactUsObj to contactUs called
 
+    successAlertContactUs.innerHTML = `   <div class="alert alert-success col-3 row m-auto mb-3 p-4" role="alert">
+    You successfully contacted!
+</div>`
+
+    setTimeout(() => {
+        successAlertContactUs.innerHTML = "";
+    }, 2000)
+
+    inpFullname.value = "";
+    inpEmail.value = "";
+    inpAddress.value = "";
+    inpPhone.value = "";
+    inpNote.value = "";
+
+
 })
 
 function writeUserData(contactUsObj) {
 
     const reference = ref(db, "contactUses/");//adding contactUsObj to contactUs
 
-    push(reference,  
+    push(reference,
         contactUsObj
-     );
+    );
 }
 
 
-inpNote.addEventListener("input", ()=>{             //on input at note area it stops you when you reached maxlength(100 simvols)
+inpNote.addEventListener("input", () => {             //on input at note area it stops you when you reached maxlength(100 simvols)
     note100.textContent = inpNote.value.length;
-    console.log(inpNote.value.length);
 })
 
 

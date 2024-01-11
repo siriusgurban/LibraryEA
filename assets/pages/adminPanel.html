@@ -18,17 +18,27 @@
     </header>
     <main>
         <section class="">
-            <div class="bg-danger" style="width:25%; position: fixed; height: 100%; overflow: auto;">
-                <h1 class="fs-1">Admin Panel</h1>
-                <h2 class="fs-2"><a href="#home">Home</a></h2>
-                <h2 class="fs-2"><a href="#books">Books</a></h2>
-                <h2 class="fs-2">About</h2>
-                <h2 class="fs-2"><a href="#joinUs">Join Us</a></h2>
-                <h2 class="fs-2"><a href="#contactUs">Contact</a></h2>
-                <h2 class="fs-2">Log Out</h2>
-            </div>
-            <div class="" style="margin-left: 30%;">
 
+            <div class="bg-danger p-4" style="width:25%; position: fixed; height: 100%; overflow: auto;">
+<!-- 
+                <div class="d-flex align-items-center gap-2 text-decoration-none link-warning">
+                    <img src="../icon/logo.svg" class="w-25" alt="">
+                    <div class="d-flex flex-column gap-1">
+                        <div class="text-white fw-bold text-uppercase fs-2">Library</div>
+                        <div style="background-color: #C3C0BD; height: 1px;"></div>
+                        <div class="text-secondary  fs-2">Admin Panel</div>
+                    </div>
+                </div> -->
+                <h1 class="fs-2 d-flex align-items-center gap-2 text-decoration-none link-warning text-white " ><img src="../icon/logo.svg" class="w-25" alt="">Admin Panel</h1>
+                <h2 class="fs-4 d-flex align-items-center gap-2"><img src="../icon/logo.svg" class="" alt=""><a class="text-decoration-none link-warning text-white" href="#home">Home</a></h2>
+                <h2 class="fs-4 d-flex align-items-center gap-2 "><img src="../icon/logo.svg" alt=""><a class="text-decoration-none link-warning text-white" href="#books">Books</a></h2>
+                <h2 class="fs-4 d-flex align-items-center gap-2 text-decoration-none link-warning text-white"><img src="../icon/logo.svg" alt="">About</h2>
+                <h2 class="fs-4 d-flex align-items-center gap-2"><img src="../icon/logo.svg" alt=""><a class="text-decoration-none link-warning text-white" href="#joinUs">Join Us</a></h2>
+                <h2 class="fs-4 d-flex align-items-center gap-2"><img src="../icon/logo.svg" alt=""><a class="text-decoration-none link-warning text-white" href="#contactUs">Contact</a></h2>
+                <h2 class="fs-4 d-flex align-items-center gap-2 text-decoration-none link-warning text-white"><img src="../icon/logo.svg" alt="">Log Out</h2>
+            </div>
+
+            <div class="p-4" style="margin-left: 27%;">
 
                 <form id="home" class="form-inline mb-4 d-flex justify-content-center gap-3 ">
                     <div class="fs-3 ">Add book</div>
@@ -83,8 +93,8 @@
                             <label class="btn btn-outline-primary" for="btnradio2">Manual Add</label>
                         </div>
 
+                        <button id="" type="submit" class="btn btn-warning px-5 py-2 zoom">Submit</button>
                     </div>
-                    <button id="" type="submit" class="btn btn-primary">Submit</button>
 
                 </form>
 
