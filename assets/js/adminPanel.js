@@ -64,7 +64,7 @@ searchBtn.addEventListener("click", (e) => {
                 })
             })
 
-            function addToForm(id , authors, title, categories, image, desc, year) {       //add to form function called
+            function addToForm(id, authors, title, categories, image, desc, year) {       //add to form function called
                 inp1.value = authors;
                 inp2.value = title;
                 inp3.value = categories;
@@ -165,8 +165,8 @@ function renderBooksonTable() {
         const data = snapshot.val();
         let arr = Object?.entries(data);
         console.log(arr.map(el => el[1]), "Table");      // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
-                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
-                                                        booktbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+        booktbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
             <th scope="row">${index + 1}</th>
             <td>${el.book?.title}</td>
@@ -194,7 +194,7 @@ function renderBooksonTable() {
         let delBtn = document.querySelectorAll(".delBtn");
 
         delBtn.forEach(btn => {
-            btn.addEventListener("click", () => { 
+            btn.addEventListener("click", () => {
                 console.log(btn.dataset.id, "btn.dataset.id");          //delete function called
                 deleteBook(btn.dataset.id);
             })
@@ -225,9 +225,9 @@ function renderJoinUsesonTable() {
         const data = snapshot.val();
         let arr = Object?.entries(data);
         console.log(arr, "arr");
-             // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
-                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
-  joinUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+        // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
+        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+        joinUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
             <th scope="row">${index + 1}</th>
             <td>${el.fullname}</td>
@@ -255,9 +255,9 @@ function renderContacUsesonTable() {
         const data = snapshot.val();
         let arr = Object?.entries(data);
         console.log(arr, "arr");
-             // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
-                                                        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
-      contactUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
+        // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
+        // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
+        contactUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
             <th scope="row">${index + 1}</th>
             <td>${el.fullname}</td>
@@ -273,31 +273,70 @@ function renderContacUsesonTable() {
 renderContacUsesonTable();
 
 //? -------------------------------------------- Contact Us End-------------------------------------
+
 //? -------------------------------------------- Admin Authecation Start--------------------------------------
+
 
 const adminCard = document.querySelector("#adminCard");
 const adminForm = document.querySelector("#adminForm");
+const alertWrong = document.querySelector("#alertWrong");
+const inpUsername = document.querySelector("#inpUsername");
+const inpPassword = document.querySelector("#inpPassword");
+const adminPanel = document.querySelector("#adminPanel");
+const adminLogOut = document.querySelector("#adminLogOut");
 
-localStorage.setItem("username", "admin");
-localStorage.setItem("password", "1234");
+// localStorage.setItem("username", "admin");
+// localStorage.setItem("password", "1234");
 
-let username = localStorage.getItem("username");
-let password = localStorage.getItem("password");
+// let username = localStorage.getItem("username");
+// let password = localStorage.getItem("password");
 
-adminForm.addEventListener("submit", ()=>{
-
-function adminChecker(id, pass) {
-    if(id=="user" && pass == "1234"){
-        adminCard.style.display ="none";
+window.addEventListener("load", (e) => {
+    if (localStorage.getItem("valid")) {
+        adminCard.setAttribute("class", "d-none");
+        adminPanel.removeAttribute("class", "d-none")
+    } else {
+        adminCard.removeAttribute("class", "d-none")
+        adminPanel.setAttribute("class", "d-none");
     }
-}
+})
 
-adminChecker(username, password);
+adminForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
+    if (inpUsername.value == "admin" && inpPassword.value == "1234") {
+        console.log("works");
+        adminCard.setAttribute("class", "d-none");
+        adminPanel.removeAttribute("class", "d-none")
+        localStorage.setItem("valid", true);
+
+
+        inpUsername.value = "";
+        inpPassword.value = "";
+
+    } else {
+        alertWrong.innerHTML = `<div class="alert alert-danger col-10 row m-auto mb-3 text-center" role="alert">
+                                    You entered wrong login or password!
+                                </div>`
+
+        setTimeout(() => {
+            alertWrong.innerHTML = "";
+        }, 2000)
+
+
+        console.log("not working");
+    }
+})
+
+adminLogOut.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("logged out");
+    adminCard.removeAttribute("class", "d-none")
+    adminPanel.setAttribute("class", "d-none");
+    localStorage.setItem("valid", false);
+    localStorage.removeItem("valid");
 })
 
 
 
 //? -------------------------------------------- Admin Authecation End-------------------------------------
-
-
