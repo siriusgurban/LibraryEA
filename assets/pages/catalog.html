@@ -54,54 +54,55 @@
     </header>
     <main>
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-          style="margin-top:150px;">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-12" id="exampleModalLabel">Join Us
-                      </h1>
-                      <!-- <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            style="margin-top:150px;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-2 fw-bolder text-center m-auto col-12" id="exampleModalLabel">Join Us
+                        </h1>
+                        <!-- <button type="button" class="btn-close col-3" data-bs-dismiss="modal"
                           aria-label="Close"></button> -->
-                  </div>
-                  
-                  <div class="modal-body">
-                      <div id="successAlert">
-                          
-                      </div>
-                      <form class="row" action="" id="joinUsBtn">
-                          <div class="mb-3 col-11 m-auto">
-                              <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
-                              <input type="text" class="form-control p-3" id="inpFullname"
-                                  aria-describedby="emailHelp" placeholder="Full Name" required />
-                          </div>
-                          <div class="mb-3 col-11 m-auto">
-                              <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
-                              <input type="email" class="form-control p-3" id="inpEmail" aria-describedby="emailHelp"
-                                  placeholder="Email address" name="username" required />
-                          </div>
-                          <div class="modal-footer w-100 d-flex gap-2">
-                              <button type="button" class="btn btn-danger zoom w-25"
-                                  data-bs-dismiss="modal">Close</button>
-                              <button id="" type="submit"
-                                  class="btn btn-warning text-white zoom w-25">Join</button>
-                          </div>
-                      </form>
-                      
-                  </div>
+                    </div>
 
-              </div>
-          </div>
-      </div>
+                    <div class="modal-body">
+                        <div id="successAlert">
+
+                        </div>
+                        <form class="row" action="" id="joinUsBtn">
+                            <div class="mb-3 col-11 m-auto">
+                                <!-- <label for="inpFullname" class="form-label fs-4">Full Name</label> -->
+                                <input type="text" class="form-control p-3" id="inpFullname"
+                                    aria-describedby="emailHelp" placeholder="Full Name" required />
+                            </div>
+                            <div class="mb-3 col-11 m-auto">
+                                <!-- <label for="inpEmail" class="form-label fs-4">Email address</label> -->
+                                <input type="email" class="form-control p-3" id="inpEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address" name="username" required />
+                            </div>
+                            <div class="modal-footer w-100 d-flex gap-2">
+                                <button type="button" class="btn btn-danger zoom w-25"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button id="" type="submit" class="btn btn-warning text-white zoom w-25">Join</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
         <section class="container" style="color: var(--color-main)">
 
             <div class="my-5 d-flex align-items-center gap-5">
+
                 <div class="fs-2 fw-bold">All Books</div>
-                <div id="categories" class="d-flex gap-3">
-                    
+                <div id="categoriesList" class="d-flex gap-4 p-2"
+                    style="cursor: pointer;  overflow-x: auto; white-space: nowrap; overflow-y: hidden; max-width: 60%; margin-left: 12%;">
+
                 </div>
             </div>
 
@@ -109,11 +110,11 @@
                 <!-- Slider main container -->
                 <div class="swiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper d-flex justify-content-start ">
                         <!-- Slides -->
                         <!-- <div class="swiper-slide">Slide 1</div> -->
 
-                        
+
 
                         ...
                     </div>
@@ -207,9 +208,9 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <!-- 
     <script type="module" src="../js/swiperCatalog.js"></script>
-    <script type="module" src="../js/swiperCatalogCategories.js"></script>
+    <script type="module" src="../js/swiperCatalogCategories.js"></script> -->
     <script type="module" src="../js/joinUs.js"></script>
     <script type="module" src="../js/catalog.js"></script>
 </body>
