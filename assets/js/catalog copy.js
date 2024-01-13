@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 const categoriesList = document.querySelector("#categoriesList");
-let swiperWrapper = document.querySelector(".carousel-inner");
+let swiperWrapper = document.querySelector(".swiper-wrapper");
 
 const allBooks = document.querySelector("#allBooks");
 
@@ -65,7 +65,7 @@ function renderCatalog() {
         categoriesClass.forEach(btn => {
 
             btn.addEventListener("click", () => {
-                console.log(  btn.textContent ,"cliked");
+
 
                 let arrForFilterCategories = arr.map(el => el[1]).filter(el => {        //on click category that mapping that types of books
                     if (el.book.categories == btn.textContent) {
@@ -77,10 +77,74 @@ function renderCatalog() {
                 console.log(arrForFilterCategories.length, "arrForFilterCategories LENGTH");
 
 
+                let numberSildePreview;
+                let forceToAxisActive;
+
+                if (arrForFilterCategories.length == 1) { numberSildePreview = 1}
+                else if (arrForFilterCategories.length == 2) { numberSildePreview = 2; }
+                else if (arrForFilterCategories.length == 3) { numberSildePreview = 3 }
+                else if (arrForFilterCategories.length == 4) { numberSildePreview = 4 }
+                else if (arrForFilterCategories.length > 4) { numberSildePreview = 5 }
+
+
+
+                const swiperObj = new Swiper('.swiper', {
+                    // Optional parameters
+                    // direction: 'horizontal',
+                    loop: true,
+                    centeredSlides:true,
+                    centeredSlidesBounds: true,
+                    slidesPerView: numberSildePreview,
+                    // spaceBetween: 50,
+
+
+                    grid: {
+                        rows: 1,
+                    },
+
+                    breakpoints: {
+
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        },
+                        1280: {
+                            slidesPerView: 4,
+                        },
+                        1300: {
+                            slidesPerView: 5,
+                        },
+                    },
+
+                    mousewheel: {
+                        forceToAxis: true,
+                    },
+
+
+                    updateOnWindowResize: false,
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    watchOverflow: true,
+                    width: 100,
+
+                    enabled: false,
+                    // threshold: numberSildePreview
+
+
+                });
+
+
+
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
-                        console.log(index, "index");
-                    return `<div class="cards-wrapper d-flex justify-content-center">
-                    <div class="carousel-item ${index == 0 ? "active" : ""} shadow rounded me-5" style="width: 200px;">
+                    console.log(numberSildePreview, "numberSildePreview"),
+                        console.log(el);
+                    return `<div class="swiper-slide shadow rounded me-5" style="width: 200px;">
                     <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
@@ -94,7 +158,6 @@ function renderCatalog() {
                             </div>
     
                         </div>
-                    </div>
                     </div>`;
                 }).join("");
 
@@ -123,6 +186,7 @@ function renderDetailPage(id) {
 
 function renderAllBooks() {
     const books = ref(db, "books/");
+    // let defaultImg = ;
 
     onValue(books, (snapshot) => {
         const data = snapshot.val();
@@ -130,13 +194,99 @@ function renderAllBooks() {
         let arr = Object.entries(data);
         console.log(arr);
 
+        const swiperObj = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            // loop: true,
+            slidesPerView: 5,
+            grid: {
+                rows: 1,
+            },
+
+            breakpoints: {
+
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1280: {
+                    slidesPerView: 4,
+                },
+                1300: {
+                    slidesPerView: 5,
+                },
+            },
+
+            mousewheel: {
+                forceToAxis: true,
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+
+        });
+
+        //   const swiperObj = new Swiper('.swiper', {
+        //             // Optional parameters
+        //             // direction: 'horizontal',
+        //             // loop: true,
+        //             // centeredSlides:true,
+        //             // centeredSlidesBounds: true,
+        //             // slidesPerView: 5,
+        //             // spaceBetween: 50,
+
+
+        //             grid: {
+        //                 rows: 1,
+        //             },
+
+        //             // breakpoints: {
+
+        //             //     640: {
+        //             //         slidesPerView: 2,
+        //             //     },
+        //             //     1024: {
+        //             //         slidesPerView: 3,
+        //             //     },
+        //             //     1280: {
+        //             //         slidesPerView: 4,
+        //             //     },
+        //             //     1300: {
+        //             //         slidesPerView: 5,
+        //             //     },
+        //             // },
+
+        //             mousewheel: {
+        //                 forceToAxis: true,
+        //             },
+
+
+        //             updateOnWindowResize: false,
+
+        //             // Navigation arrows
+        //             navigation: {
+        //                 nextEl: '.swiper-button-next',
+        //                 prevEl: '.swiper-button-prev',
+        //             },
+        //             watchOverflow: true,
+        //             // width: 100,
+
+        //             // enabled: false,
+        //             // threshold: 1
+
+
+        //         });
+
         swiperWrapper.innerHTML =
             arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
                 console.log(el);
-                console.log(index, "index");
-
-                return `<div class="cards-wrapper d-flex justify-content-center">
-                <div class="carousel-item active shadow-lg rounded " style="">
+                return `<div class="swiper-slide shadow-lg rounded " style="">
                     <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
@@ -150,7 +300,6 @@ function renderAllBooks() {
                             </div>
     
                         </div>
-                    </div>
                     </div>`;
             }).join("");;
 

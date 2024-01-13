@@ -40,3 +40,22 @@ body{
 #categoriesList::-webkit-scrollbar-thumb:hover {
   background: var(--color-main);
 }
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-inner {
+  padding: 16px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}

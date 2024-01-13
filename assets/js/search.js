@@ -23,7 +23,7 @@ const db = getDatabase();
 
 const searchBtn = document.querySelector("#searchBtn");
 const inp = document.querySelector("#inp");
-const swiperWrapper = document.querySelector(".swiper-wrapper");
+const swiperWrapper = document.querySelector(".carousel-inner");
 let filteredBookArr = [];
 
 
@@ -41,11 +41,21 @@ function renderFoundBooks() {
             let arr = Object.entries(data);
             console.log(arr);
 
-            let arrBook = (arr.map(el => el[1]));
-            console.log(arrBook);
+            let arrBooksAndComments = (arr.map(el => el[1]));
+            console.log(arrBooksAndComments, "arrBooksAndComments");
 
+            let arrBooks = arrBooksAndComments.map(el => el.book)
+            console.log(inp.value.toLowerCase());
 
-            if (inp.value == "") {
+            let filteredBookArr = arrBooks.filter(el => {
+                if (el.title.toLowerCase().includes(inp.value.toLowerCase())) {
+                    return el;
+                }
+            })
+
+            console.log(filteredBookArr, "filteredBookArr");
+
+            if (inp.value.length == 0) {
                 console.log("Empty input");
                 warningAlert.innerHTML = `<div class="alert alert-warning col-12 row m-auto mb-4 py-4" role="alert">
                                                 Fill the input!
@@ -55,39 +65,36 @@ function renderFoundBooks() {
                     warningAlert.innerHTML = "";
                 }, 2000)
 
-            } else {
-                for (const el of arrBook) {
-                    // let elLower = el?.book.title.toLowerCase();
-                    // let inpLower = inp.value.toLowerCase();
-                    if (el?.book.title.includes(inp.value)) {
-                        console.log("Found");
-                        filteredBookArr.push(`<div class="swiper-slide">
+                return;
+            }
+
+            if (filteredBookArr.length > 0) {
+                console.log("Found");
+                swiperWrapper.innerHTML = filteredBookArr.map((el, index) =>
+                (`<div class="carousel-item ${index == 0 ? "active" : ""}">
                     <div class="card mb-3" style="max-width: 960px; max-height: 560px;  padding: 50px 30px;">
                         <div class="row g-3 p-3">
                         <div class="col-md-6">
-                            <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
+                            <img src="${el.image == "undefined" ? `../icon/logo_red.svg` : el.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body d-flex flex-column gap-4">
-                            <h5 class="card-title fs-3 fw-bold mt-3">${el?.book.title}</h5>
-                            <p class="card-text fs-3 mt-3">${el?.book.authors}</p>
-                            <p class="card-text fs-5 mt-3 overflow-y-auto" style="height: 200px">${el?.book.desc}</p>
+                            <h5 class="card-title fs-3 fw-bold mt-3">${el?.title}</h5>
+                            <p class="card-text fs-3 mt-3">${el?.authors}</p>
+                            <p class="card-text fs-5 mt-3 overflow-y-auto" style="height: 200px">${el?.desc}</p>
                             </div>
                         </div>
                         </div>
                     </div>
                 </div>
                 `)
-                        inp.value = "";
-                        swiperWrapper.innerHTML = filteredBookArr.join("");
-                        
+                ).join("");
 
-
-                    }
-                    else {
-                        console.log("error");
-                        swiperWrapper.innerHTML = `
-                <div class="swiper-slide">
+                inp.value = "";
+            } else {
+                console.log("Not found error");
+                swiperWrapper.innerHTML = `
+                <div class="carousel-item active">
                 <div class="card mb-3" style="max-width: 960px; padding: 60px 30px;">
                     <div class="row g-0">
                         <div class="col-md-6">
@@ -108,19 +115,16 @@ function renderFoundBooks() {
                 </div>
             </div>`
 
-                    }
-
-
-                }
-
-
+                inp.value = "";
             }
 
-            inp.value = "";
+
+
+
+
         })
 
-        console.log(filteredBookArr, "filteredBookArr filled");
-        filteredBookArr = [];
+
 
     })
 }
