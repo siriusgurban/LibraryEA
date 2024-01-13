@@ -24,34 +24,48 @@ const db = getDatabase();
 const searchBtn = document.querySelector("#searchBtn");
 const inp = document.querySelector("#inp");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
+let filteredBookArr = [];
 
 
-searchBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+function renderFoundBooks() {
+    searchBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
 
-    const books = ref(db, "books/");
+        const books = ref(db, "books/");
 
-    onValue(books, (snapshot) => {
-        const data = snapshot.val();
+        onValue(books, (snapshot) => {
+            const data = snapshot.val();
 
 
-        let arr = Object.entries(data);
-        console.log(arr);
+            let arr = Object.entries(data);
+            console.log(arr);
 
-        let arrBook = (arr.map(el => el[1]));
-        console.log(arrBook);
+            let arrBook = (arr.map(el => el[1]));
+            console.log(arrBook);
 
-        const filteredBookArr = [];
-        for (const el of arrBook) {
-            // let elLower = el?.book.title.toLowerCase();
-            // let inpLower = inp.value.toLowerCase();
-            if (el?.book.title.includes(inp.value)) {
-                filteredBookArr.push(`<div class="swiper-slide">
+
+            if (inp.value == "") {
+                console.log("Empty input");
+                warningAlert.innerHTML = `<div class="alert alert-warning col-12 row m-auto mb-4 py-4" role="alert">
+                                                Fill the input!
+                                        </div>`
+
+                setTimeout(() => {
+                    warningAlert.innerHTML = "";
+                }, 2000)
+
+            } else {
+                for (const el of arrBook) {
+                    // let elLower = el?.book.title.toLowerCase();
+                    // let inpLower = inp.value.toLowerCase();
+                    if (el?.book.title.includes(inp.value)) {
+                        console.log("Found");
+                        filteredBookArr.push(`<div class="swiper-slide">
                     <div class="card mb-3" style="max-width: 960px; max-height: 560px;  padding: 50px 30px;">
                         <div class="row g-3 p-3">
                         <div class="col-md-6">
-                            <img src="${el.book.image=="undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
+                            <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-bottom" class="img-fluid rounded-start" width="350" height="450" alt="...">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body d-flex flex-column gap-4">
@@ -64,13 +78,15 @@ searchBtn.addEventListener("click", (e) => {
                     </div>
                 </div>
                 `)
+                        inp.value = "";
+                        swiperWrapper.innerHTML = filteredBookArr.join("");
+                        
 
-                swiperWrapper.innerHTML = filteredBookArr.join("");
 
-
-            } else if (filteredBookArr.length == 0 || inp.value == "") {
-                console.log("error");
-                swiperWrapper.innerHTML = `
+                    }
+                    else {
+                        console.log("error");
+                        swiperWrapper.innerHTML = `
                 <div class="swiper-slide">
                 <div class="card mb-3" style="max-width: 960px; padding: 60px 30px;">
                     <div class="row g-0">
@@ -92,15 +108,24 @@ searchBtn.addEventListener("click", (e) => {
                 </div>
             </div>`
 
+                    }
+
+
+                }
+
+
             }
 
-        }
+            inp.value = "";
+        })
 
+        console.log(filteredBookArr, "filteredBookArr filled");
+        filteredBookArr = [];
 
-
-        inp.value = "";
     })
+}
+
+renderFoundBooks();
 
 
-})
 

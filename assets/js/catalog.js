@@ -24,6 +24,10 @@ const db = getDatabase();
 const categoriesList = document.querySelector("#categoriesList");
 let swiperWrapper = document.querySelector(".swiper-wrapper");
 
+const allBooks = document.querySelector("#allBooks");
+
+allBooks.addEventListener("click", renderAllBooks)
+
 function renderCatalog() {
     const books = ref(db, "books/");
 
@@ -76,7 +80,7 @@ function renderCatalog() {
                 let numberSildePreview;
                 let forceToAxisActive;
 
-                if (arrForFilterCategories.length == 1) { numberSildePreview = 1; forceToAxisActive = false}
+                if (arrForFilterCategories.length == 1) { numberSildePreview = 1}
                 else if (arrForFilterCategories.length == 2) { numberSildePreview = 2; }
                 else if (arrForFilterCategories.length == 3) { numberSildePreview = 3 }
                 else if (arrForFilterCategories.length == 4) { numberSildePreview = 4 }
@@ -87,7 +91,9 @@ function renderCatalog() {
                 const swiperObj = new Swiper('.swiper', {
                     // Optional parameters
                     // direction: 'horizontal',
-                    // loop: true,
+                    loop: true,
+                    centeredSlides:true,
+                    centeredSlidesBounds: true,
                     slidesPerView: numberSildePreview,
                     // spaceBetween: 50,
 
@@ -116,14 +122,19 @@ function renderCatalog() {
                         forceToAxis: true,
                     },
 
+
+                    updateOnWindowResize: false,
+
                     // Navigation arrows
                     navigation: {
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
                     },
+                    watchOverflow: true,
+                    width: 100,
 
-                    // enabled: false,
-                    threshold: numberSildePreview
+                    enabled: false,
+                    // threshold: numberSildePreview
 
 
                 });
@@ -221,6 +232,57 @@ function renderAllBooks() {
 
         });
 
+        //   const swiperObj = new Swiper('.swiper', {
+        //             // Optional parameters
+        //             // direction: 'horizontal',
+        //             // loop: true,
+        //             // centeredSlides:true,
+        //             // centeredSlidesBounds: true,
+        //             // slidesPerView: 5,
+        //             // spaceBetween: 50,
+
+
+        //             grid: {
+        //                 rows: 1,
+        //             },
+
+        //             // breakpoints: {
+
+        //             //     640: {
+        //             //         slidesPerView: 2,
+        //             //     },
+        //             //     1024: {
+        //             //         slidesPerView: 3,
+        //             //     },
+        //             //     1280: {
+        //             //         slidesPerView: 4,
+        //             //     },
+        //             //     1300: {
+        //             //         slidesPerView: 5,
+        //             //     },
+        //             // },
+
+        //             mousewheel: {
+        //                 forceToAxis: true,
+        //             },
+
+
+        //             updateOnWindowResize: false,
+
+        //             // Navigation arrows
+        //             navigation: {
+        //                 nextEl: '.swiper-button-next',
+        //                 prevEl: '.swiper-button-prev',
+        //             },
+        //             watchOverflow: true,
+        //             // width: 100,
+
+        //             // enabled: false,
+        //             // threshold: 1
+
+
+        //         });
+
         swiperWrapper.innerHTML =
             arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
                 console.log(el);
@@ -251,6 +313,9 @@ function renderAllBooks() {
 
 
 renderAllBooks();
+
+
+
 
 //--------------------------------------------All Books-Mapping---------------------------------------------------------------------------
 

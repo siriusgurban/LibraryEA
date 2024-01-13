@@ -22,7 +22,7 @@
                     <div class="d-flex gap-2">
                         <img src="../icon/logo_red.svg" alt="">
                         <div class="d-flex flex-column gap-1">
-                            <div class="text-danger fw-bold text-uppercase">Library</div>
+                            <div class="fw-bold text-uppercase"  style="color: var(--color-red);">Library</div>
                             <div style="background-color: #C3C0BD; height: 1px;"></div>
                             <div class="text-secondary">book store</div>
                         </div>
@@ -102,14 +102,16 @@
             <div class="d-flex justify-content-between gap-5 mt-5">
 
                 <div class="w-25">
-                    <div class="d-flex flex-column gap-5">
+                    <form class="d-flex flex-column gap-5" >
                         <h2 class="fs-2 fw-bold">Search</h2>
                         <input id="inp" type="text" class="form-control w-100 p-3" placeholder="Book's name"
-                            aria-describedby="basic-addon2">
+                            aria-describedby="basic-addon2" required>
+                            
                         <div class="">
-                            <button id="searchBtn" class="btn btn-outline-warning w-100 zoom p-3 fw-bold" type="button">Search</button>
+                            <button id="searchBtn" class="btn btn-outline-warning w-100 zoom p-3 fw-bold" type="submit">Search</button>
                         </div>
-                    </div>
+                        <div id="warningAlert"></div>
+                    </form>
                 </div>
 
                 <div class="w-75">

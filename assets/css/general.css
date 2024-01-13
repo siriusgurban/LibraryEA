@@ -8,6 +8,7 @@ body{
   --color-main: #241400;
   --color-footer: #391F00;
   --color-body: #fffaf5;
+  --color-red: #720418;
 
 }
 
@@ -32,10 +33,10 @@ body{
 }
 
 #categoriesList::-webkit-scrollbar-thumb {
-  background: red; 
+  background: var(--color-red);
   border-radius: 10px;
 }
 
 #categoriesList::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: var(--color-main);
 }

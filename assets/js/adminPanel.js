@@ -44,16 +44,16 @@ searchBtn.addEventListener("click", (e) => {
             console.log(data);
             // <img src="${el.volumeInfo.imageLinks.thumbnail}" class="card-img-top" alt="..." style="height: 360px">
             main_card.innerHTML = data.items.map(el => {   //mapping datas to page
-                return `<div class="card my-4 " style="width: 18rem; cursor: pointer">
+                return `                    <div class="card my-4 bg-light m-2" style="width: 18rem;">
 
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">${el.volumeInfo.authors}</h4>
-                                <h5 class="card-title">${el.volumeInfo.title}</h5>
-                                <h5 class="card-title">${el.volumeInfo.categories}</h5>
-                                <button class="btn btn-primary addBtn" data-id="${el.id}" data-year="${el.volumeInfo?.publishedDate}" data-desc="${el.volumeInfo.description}" data-image="${el.volumeInfo.imageLinks?.thumbnail}" data-title="${el.volumeInfo.title}" data-authors="${el.volumeInfo.authors}" data-categories="${el.volumeInfo.categories}">Add</button>
-                            </div>
+                <div class="card-body d-flex flex-column justify-content-center gap-1">
+                    <h4 class="card-title fw-bold">${el.volumeInfo.authors}</h4>
+                    <h5 class="card-title ">${el.volumeInfo.title}</h5>
+                    <h5 class="card-title">${el.volumeInfo.categories}</h5>
+                    <div class="d-flex justify-content-center"><button class="btn btn-success addBtn " data-id="${el.id}" data-year="${el.volumeInfo?.publishedDate}" data-desc="${el.volumeInfo.description}" data-image="${el.volumeInfo.imageLinks?.thumbnail}" data-title="${el.volumeInfo.title}" data-authors="${el.volumeInfo.authors}" data-categories="${el.volumeInfo.categories}">Fill the form</button>
+                </div></div>
 
-                        </div>`
+            </div>`
             }).join("");
 
             let addBtn = document.querySelectorAll(".addBtn");
@@ -167,13 +167,13 @@ function renderBooksonTable() {
         console.log(arr.map(el => el[1]), "Table");      // arr.map(el => el[1])   bu yasilisda firebase-i gurulusuna gore, 
         // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
         booktbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
-            return `<tr>
-            <th scope="row">${index + 1}</th>
-            <td>${el.book?.title}</td>
-            <td>${el.book?.authors}</td>
+            return `<tr >
+            <th scope="row" class="text-center">${index + 1}</th>
+            <td class="col-4 "><img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" style="width: 10%" class="border" alt=""><p>${el.book?.title}</p></td>
+            <td class="text-center">${el.book?.authors}</td>
             <td><div class="descHover" style="overflow:hidden; width: 300px; height:50px;">${el.book?.desc}</div></td>
-            <td>${el.book?.categories}</td>
-            <td><button class="btn btn-danger delBtn" data-id="${el.book?.id}">Del</button></td>
+            <td class="text-center">${el.book?.categories}</td>
+            <td class="text-center"><button class="btn btn-danger delBtn" data-id="${el.book?.id}">Del</button></td>
             </tr>`
         }).join("");
 
@@ -229,9 +229,9 @@ function renderJoinUsesonTable() {
         // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
         joinUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
-            <th scope="row">${index + 1}</th>
-            <td>${el.fullname}</td>
-            <td>${el.email}</td>
+            <th scope="row" class="text-center">${index + 1}</th>
+            <td class="text-center">${el.fullname}</td>
+            <td class="text-center">${el.email}</td>
             </tr>`
         }).join("");
 
@@ -259,11 +259,11 @@ function renderContacUsesonTable() {
         // her 1-ci index-deki elemeti gotururem, hansi ki onlar objectdir(datadir)
         contactUstbody.innerHTML = arr.map(el => el[1]).map((el, index) => {
             return `<tr>
-            <th scope="row">${index + 1}</th>
-            <td>${el.fullname}</td>
-            <td>${el.address}</td>
-            <td>${el.email}</td>
-            <td>${el.phone}</td>
+            <th scope="row" class="text-center">${index + 1}</th>
+            <td class="text-center">${el.fullname}</td>
+            <td class="text-center">${el.address}</td>
+            <td class="text-center">${el.email}</td>
+            <td class="text-center">${el.phone}</td>
             </tr>`
         }).join("");
 
