@@ -53,7 +53,7 @@ function renderBook() {
                                             </div>
 
                                             <div class="w-25">
-                                                <img class="w-100 border border-warning shadow-lg" src="${el[1].book.image=="undefined" ? `../icon/logo_red.svg` : el[1].book.image}" alt="Image" srcset="">
+                                                <img class="w-100 border border-5 border-warning shadow-lg" src="${el[1].book.image=="undefined" ? `../icon/logo_red.svg` : el[1].book.image}" alt="Image" srcset="">
                                             </div>
 
                                         </div>

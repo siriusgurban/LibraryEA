@@ -21,9 +21,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-
 const categoriesList = document.querySelector("#categoriesList");
-let swiperWrapper = document.querySelector(".slider");
+let swiperWrapper = document.querySelector(".carousel-inner");
 
 const allBooks = document.querySelector("#allBooks");
 
@@ -76,10 +75,10 @@ function renderCatalog() {
                 })
 
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
-                    return `
-                    <div class="" >
-
-                    <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                    console.log(index, "index");
+                    return `<div class="cards-wrapper d-flex justify-content-center">
+                    <div class="carousel-item ${index == 0 ? "active" : ""} shadow rounded me-5" style="width: 200px;">
+                    <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
                             <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
@@ -93,7 +92,7 @@ function renderCatalog() {
     
                         </div>
                     </div>
-                    `;
+                    </div>`;
                 }).join("");
 
                 let readMoreBtn = document.querySelectorAll(".readMoreBtn");
@@ -143,39 +142,34 @@ function renderAllBooks() {
         }
 
         function sliderWrap2(index) {
-            if ((index != 0 && index % 5 == 0)) {
+            if ((index != 0 && index % 5 == 0)){
                 return "</div></div>";
             }
-
+            
         }
 
         swiperWrapper.innerHTML =
             arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
+                console.log(el);
+                console.log(index, "index");
 
                 return `
-                
-               
-                <div class=" ">
-
-                <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                <div class="carousel-item ${index<5 ? "active" : ""} shadow-lg rounded ">
+                <div class="cards-wrapper d-flex justify-content-center gap-3">
+                    <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
+    
+                            <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
+    
+                                <h4 class="card-title fw-bold overflow-hidden" style="height: 30px">${el.book.authors}</h4>
+                                <h5 class="card-title fst-italic overflow-hidden" style="height: 16px">${el.book.title}</h5>
+                                <h5 class="card-title overflow-hidden" style="height: 16px">${el.book.categories}</h5>
+                                <button class="btn btn-warning zoom text-white fw-bold readMoreBtn" data-id="${el.book.id}">Read More</button>
 
-                    <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
-
-                        <h4 class="card-title fw-bold overflow-hidden" style="height: 30px">${el.book.authors}
-                        </h4>
-                        <h5 class="card-title fst-italic overflow-hidden" style="height: 16px">${el.book.title}
-                        </h5>
-                        <h5 class="card-title overflow-hidden" style="height: 16px">${el.book.categories}</h5>
-                        <button class="btn btn-warning zoom text-white fw-bold readMoreBtn"
-                            data-id="${el.book.id}">Read More</button>
-
-                    </div>
-                </div>
-            </div>
-            
-         
-                        
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                     `;
             }).join("");
 

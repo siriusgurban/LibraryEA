@@ -21,9 +21,58 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
+// $(document).ready(function () {
+//     $(".owl-carousel").owlCarousel();
+// });
+
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 100,
+    nav: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 5
+        }
+    }
+})
+
+// var owl = $('.owl-carousel');
+// owl.owlCarousel({
+//     loop:true,
+//     nav:true,
+//     margin:10,
+//     responsive:{
+//         0:{
+//             items:1
+//         },
+//         600:{
+//             items:3
+//         },            
+//         960:{
+//             items:5
+//         },
+//         1200:{
+//             items:6
+//         }
+//     }
+// });
+// owl.on('mousewheel', '.owl-stage', function (e) {
+//     if (e.deltaY>0) {
+//         owl.trigger('next.owl');
+//     } else {
+//         owl.trigger('prev.owl');
+//     }
+//     e.preventDefault();
+// });
 
 const categoriesList = document.querySelector("#categoriesList");
-let swiperWrapper = document.querySelector(".slider");
+let swiperWrapper = document.querySelector(".owl-stage");
 
 const allBooks = document.querySelector("#allBooks");
 
@@ -76,10 +125,9 @@ function renderCatalog() {
                 })
 
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
-                    return `
-                    <div class="" >
+                    return `                <div class="owl-item" >
 
-                    <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                    <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
                             <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
@@ -153,11 +201,11 @@ function renderAllBooks() {
             arr.map(el => el[1]).map((el, index) => {      //maping categories to All Books Section at Catalog page
 
                 return `
-                
+                <div class="owl-item">
                
-                <div class=" ">
+                <div class=" shadow-lg">
 
-                <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                <div class="card p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
 
                     <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
@@ -173,7 +221,7 @@ function renderAllBooks() {
                     </div>
                 </div>
             </div>
-            
+            </div>
          
                         
                     `;
