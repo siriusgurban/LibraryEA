@@ -39,12 +39,12 @@ function renderBook() {
             if (el[0] == currentId) {
                 bookSection.innerHTML = `<div class="d-flex gap-5 justify-content-between p-5">
 
-                                            <div class="w-50 d-flex flex-column gap-2">
+                                            <div class="w-50 d-flex flex-column gap-2" >
                                                 <div class="bg-primary text-white text-center w-25 py-1 fw-bold rounded">${el[1].book.year}</div>
                                                 <div class="fs-2 fw-bolder">${el[1].book.title}</div>
                                                 <div class="fw-bold">Added at ${new Date(el[1].book.date).toLocaleDateString()}</div>
                                                 <div class="fs-2 fst-italic">${el[1].book.authors}</div>
-                                                <div class="lh-lg" >${el[1].book.desc}</div>
+                                                <div class="lh-lg" style="overflow-y: auto; max-height: 400px">${el[1].book.desc}</div>
                                                 <form class="d-flex my-4" action="">
                                                     <input  type="text" id="commentinput" class="form-control shadow p-2" placeholder="Type comment...">
                                                     <button type="submit" id="commentBtn" class="btn btn-warning zoom text-white">Comment</button>

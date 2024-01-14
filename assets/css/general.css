@@ -1,19 +1,18 @@
-@import url("reset.css");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Roboto:ital,wght@0,100;0,400;0,700;1,500&display=swap");
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Roboto:ital,wght@0,100;0,400;0,700;1,500&display=swap');
 
-body{
-   font-family: 'Montserrat', sans-serif;
+body {
+  font-family: 'Montserrat', sans-serif;
 }
-:root{
+:root {
   --color-main: #241400;
-  --color-footer: #391F00;
+  --color-footer: #391f00;
   --color-body: #fffaf5;
   --color-red: #720418;
-
 }
 
 .zoom {
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
 }
 
 .zoom:hover {
@@ -21,15 +20,15 @@ body{
   cursor: pointer; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
-#categoriesList::-webkit-scrollbar{
+#categoriesList::-webkit-scrollbar {
   width: 5px;
   height: 10px;
   /* background-color: #9d1414;  */
-  color: var(--color-main); 
+  color: var(--color-main);
 }
 
-#categoriesList::-webkit-scrollbar-button{
-  display: none; 
+#categoriesList::-webkit-scrollbar-button {
+  display: none;
 }
 
 #categoriesList::-webkit-scrollbar-thumb {
@@ -41,16 +40,14 @@ body{
   background: var(--color-main);
 }
 
-
-
-#allBooksScroll::-webkit-scrollbar{
-  width: 8px;
-  height: 20px;
-  color: var(--color-main); 
+#allBooksScroll::-webkit-scrollbar {
+  width: 20px;
+  height: 8px;
+  color: var(--color-main);
 }
 
-#allBooksScroll::-webkit-scrollbar-button{
-  display: none; 
+#allBooksScroll::-webkit-scrollbar-button {
+  display: none;
 }
 
 #allBooksScroll::-webkit-scrollbar-thumb {
@@ -60,4 +57,92 @@ body{
 
 #allBooksScroll::-webkit-scrollbar-thumb:hover {
   background: var(--color-main);
+}
+
+.horizontal-scroll-wrapper {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 80px;
+  max-height: 500px;
+  margin: 0;
+  background: #abc;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg) translateY(-80px);
+  transform-origin: right top;
+}
+.horizontal-scroll-wrapper > div {
+  display: block;
+  padding: 25px;
+  background: #cab;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}
+
+.slider {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 450px;
+  /* height:  1280px; */
+  max-height: 1280px;
+  margin: auto;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  direction: rtl;
+  transform: rotate(-90deg) translateY(-450px);
+  transform-origin: right top;
+}
+.slider > div {
+  width: 400px;
+  height: 200px;
+  cursor: pointer;
+  display: block;
+  padding: 0px;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}
+
+.slider:first-child{
+  padding-top: 240px;
+}
+
+@media screen and (max-width: 1440px) {
+  .slider {
+    max-height: 1180px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .slider {
+    max-height: 1000px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .slider {
+    max-height: 850px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .slider {
+    max-height: 750px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .slider {
+    max-height: 650px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .slider {
+    max-height: 540px;
+  }
 }

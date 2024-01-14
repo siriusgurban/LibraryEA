@@ -77,9 +77,8 @@ function renderCatalog() {
 
                 swiperWrapper.innerHTML = arrForFilterCategories.map((el, index) => {      //maping categories to All Books Section at Catalog page
                     return `
-                    <div class="" >
-
-                    <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                    <div class="">
+                    <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer; ">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
     
                             <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
@@ -92,7 +91,8 @@ function renderCatalog() {
                             </div>
     
                         </div>
-                    </div>
+                        </div>
+            
                     `;
                 }).join("");
 
@@ -131,7 +131,7 @@ function renderAllBooks() {
 
         function sliderWrap(index) {
             if ((index < 6 && index % 5 == 0) || index == 0) {
-                let wrap1 = '<div class="carousel-item active shadow-lg rounded d-flex justify-content-center" style=""><div class="cards-wrapper d-flex  gap-3">'
+                let wrap1 = '<div class="carousel-item active shadow-lg rounded d-flex justify-content-center" style=""><div class="cards-wrapper d-flex gap-3">'
 
                 return wrap1;
             } else if (index > 6 && index % 5 == 0) {
@@ -155,9 +155,9 @@ function renderAllBooks() {
                 return `
                 
                
-                <div class=" ">
+                <div class=" " style="">
 
-                <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer">
+                <div class="card shadow-lg p-3 rounded" style="width: 200px; height: 400px; cursor: pointer; ">
                     <img src="${el.book.image == "undefined" ? `../icon/logo_red.svg` : el.book.image}" class="card-img-top" alt="..." width="130" height="180">
 
                     <div class="card-body d-flex flex-column justify-content-between align-items-between gap-2">
