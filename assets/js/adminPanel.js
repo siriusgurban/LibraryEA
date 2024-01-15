@@ -129,26 +129,34 @@ function renderBooksCategories() {
     })
 }
 
+renderBooksCategories()
 
-let btnCheck = document.querySelectorAll(".btn-check");
+// let btnCheck = document.querySelectorAll(".form-check-input");
+let flexCheckDefault = document.querySelector("#flexCheckDefault");
+let flexCheckValue = document.querySelector("#flexCheckValue");
+// let flexRadioDefault2 = document.querySelector("#flexRadioDefault2");
 
-btnCheck.forEach(btn => {   // changing between avto add and manual add (disabling and enabling)
-    btn.addEventListener("click", () => {
-        if (dropInpMenu.hasAttribute("disabled")) {
-            dropInpMenu.removeAttribute("disabled");
-            inp3.setAttribute("disabled", true);
-        } else {
-            dropInpMenu.setAttribute("disabled", true);
-            inp3.removeAttribute("disabled");
-        }
-    })
+// changing between avto add and manual add (disabling and enabling)
+flexCheckDefault.addEventListener("click", () => {
+    if (dropInpMenu.hasAttribute("disabled")) {
+        flexCheckDefault.removeAttribute("checked")
+        flexCheckValue.textContent = "Manual Add Category";
+        dropInpMenu.removeAttribute("disabled");
+        inp3.setAttribute("disabled", true);
+    } else {
+        flexCheckDefault.removeAttribute("checked")
+        flexCheckValue.textContent = "Avto Add Category";
+        dropInpMenu.setAttribute("disabled", true);
+        inp3.removeAttribute("disabled");
+    }
 })
+
 
 function checkForDuplicates(arr) {    //function checks For Duplicates in categories
     return [...new Set(arr)];
 }
 
-renderBooksCategories()
+
 
 
 
